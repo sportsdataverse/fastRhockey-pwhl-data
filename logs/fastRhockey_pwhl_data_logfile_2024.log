@@ -1,0 +1,39 @@
+ℹ === PWHL Data Creation started ===
+ℹ Processing seasons: 2024
+
+── Processing 2024 PWHL season ─────────────────────────────────────────────────
+ℹ Downloading 2024 schedule from pwhl-raw
+ℹ 85 games with final JSON in raw repo
+ℹ Downloading 2024 schedule from pwhl-raw✔ Downloaded 2024 schedule [233ms]
+
+ℹ Compiling 2024 PBP (85 games)
+ℹ 14066 PBP events
+ℹ Compiling 2024 PBP (85 games)Error in `purrr::map()`:
+ℹ In index: 1.
+Caused by error:
+! Invalid: Can only convert data frames to Struct type
+Backtrace:
+     ▆
+  1. ├─purrr::map(...)
+  2. │ └─purrr:::map_("list", .x, .f, ..., .progress = .progress)
+  3. │   ├─purrr:::with_indexed_errors(...)
+  4. │   │ └─base::withCallingHandlers(...)
+  5. │   ├─purrr:::call_with_cleanup(...)
+  6. │   └─global .f(.x[[i]], ...)
+  7. │     └─arrow::write_parquet(...)
+  8. │       └─arrow:::as_writable_table(x)
+  9. │         ├─base::tryCatch(...)
+ 10. │         │ └─base (local) tryCatchList(expr, classes, parentenv, handlers)
+ 11. │         │   └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 12. │         │     └─base (local) doTryCatch(return(expr), name, parentenv, handler)
+ 13. │         ├─arrow::as_arrow_table(x)
+ 14. │         └─arrow:::as_arrow_table.data.frame(x)
+ 15. │           └─Table$create(x, schema = schema)
+ 16. │             └─arrow:::Table__from_dots(dots, schema, option_use_threads())
+ 17. └─base::.handleSimpleError(...)
+ 18.   └─purrr (local) h(simpleError(msg, call))
+ 19.     └─cli::cli_abort(...)
+ 20.       └─rlang::abort(...)
+✖ Compiling 2024 PBP (85 games) [10.8s]
+
+Execution halted
