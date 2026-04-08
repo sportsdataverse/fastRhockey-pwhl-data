@@ -1,7 +1,14 @@
 ## Compile PWHL season datasets from fastRhockey-pwhl-raw repo
+##
+## NOTE ON SEASON CONVENTION:
+##   -s / -e refer to the *end year* of the season (e.g., 2026 = 2025-26).
+##   This matches `fastRhockey::most_recent_pwhl_season()`. All compiled
+##   datasets are named using the end year: play_by_play_{end_year}.rds,
+##   pwhl_schedule_{end_year}.rds, etc.
+##
 ## Usage:
-##   Rscript R/pwhl_data_creation.R -s 2024           (single season)
-##   Rscript R/pwhl_data_creation.R -s 2024 -e 2025   (range of seasons)
+##   Rscript R/pwhl_data_creation.R -s 2026           (single season: 2025-26)
+##   Rscript R/pwhl_data_creation.R -s 2024 -e 2026   (range: 2023-24 through 2025-26)
 ##
 ## Reads from: sportsdataverse/fastRhockey-pwhl-raw (schedules + final game JSON)
 ## Produces:   PBP, player_box, rosters, game_summary, schedules, master files
@@ -419,8 +426,12 @@ if (!dir.exists("pwhl")) dir.create("pwhl")
 saveRDS(games_in_repo, "pwhl/pwhl_games_in_data_repo.rds", compress = "xz")
 arrow::write_parquet(games_in_repo, "pwhl/pwhl_games_in_data_repo.parquet", compression = "gzip")
 
-# Upload schedules to release
+# Upload schedules and games index to release
 .upload_to_release(sched_all, "pwhl_schedule_master", "pwhl_schedules", "PWHL schedules")
+.upload_to_release(
+  games_in_repo, "pwhl_games_in_data_repo",
+  "pwhl_schedules", "PWHL games available in fastRhockey data repo"
+)
 
 logging(glue("Master: {nrow(sched_all)} schedule rows, {nrow(games_in_repo)} with PBP"))
 cli::cli_alert_success("{nrow(sched_all)} total schedule rows, {nrow(games_in_repo)} with PBP")
