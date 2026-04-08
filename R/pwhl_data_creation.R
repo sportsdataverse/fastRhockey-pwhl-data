@@ -25,14 +25,7 @@ suppressPackageStartupMessages(library(arrow))
 suppressPackageStartupMessages(library(optparse))
 suppressPackageStartupMessages(library(cli))
 
-# ── Logging ──────────────────────────────────────────────────────────────
-LOG_FILE <- "logs/fastRhockey_pwhl_data_logfile.log"
-if (!dir.exists("logs")) dir.create("logs", recursive = TRUE)
-logging <- function(msg, level = "INFO") {
-  entry <- paste0(format(Sys.time(), "[%Y-%m-%d %H:%M:%S] "), level, ": ", msg)
-  cat(entry, "\n", file = LOG_FILE, append = TRUE)
-}
-logging("=== PWHL Data Creation started ===")
+cli::cli_alert_info("=== PWHL Data Creation started ===")
 
 option_list <- list(
   optparse::make_option(
@@ -57,7 +50,7 @@ options(scipen = 999)
 
 if (is.na(opt$end_year)) opt$end_year <- opt$start_year
 years_vec <- opt$start_year:opt$end_year
-logging(glue("Processing seasons: {paste(years_vec, collapse=', ')}"))
+cli::cli_alert_info("Processing seasons: {paste(years_vec, collapse=', ')}")
 
 RAW_BASE <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main"
 
@@ -74,7 +67,7 @@ RAW_BASE <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-
       readRDS(con)
     },
     error = function(e) {
-      logging(glue("Failed to read RDS from {url}: {conditionMessage(e)}"), "ERROR")
+      cli::cli_alert_danger("Failed to read RDS from {url}: {conditionMessage(e)}")
       NULL
     }
   )
@@ -118,7 +111,7 @@ RAW_BASE <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-
                           unset = system("gh auth token", intern = TRUE))
     ),
     error = function(e) {
-      logging(glue("Failed to upload {file_name} to {release_tag}: {conditionMessage(e)}"), "WARN")
+      cli::cli_alert_warning("Failed to upload {file_name} to {release_tag}: {conditionMessage(e)}")
     }
   )
 }
@@ -130,7 +123,6 @@ RAW_BASE <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-
 
 all_games <- purrr::map(years_vec, function(season_year) {
   cli::cli_h1("Processing {season_year} PWHL season")
-  logging(glue("=== {season_year} PWHL season ==="))
 
 
   # ──────────────────────────────────────────────────────────────────────
@@ -146,7 +138,6 @@ all_games <- purrr::map(years_vec, function(season_year) {
 
   if (is.null(sched)) {
     cli::cli_alert_danger("Could not fetch schedule for {season_year}. Skipping.")
-    logging(glue("Could not fetch schedule for {season_year}"), "ERROR")
     return(NULL)
   }
 
@@ -162,12 +153,10 @@ all_games <- purrr::map(years_vec, function(season_year) {
   season_game_list <- season_json_games$game_id
   season_game_urls <- season_json_games$game_json_url
 
-  logging(glue("{length(season_game_list)} games with final JSON in raw repo"))
   cli::cli_alert_info("{length(season_game_list)} games with final JSON in raw repo")
 
   if (length(season_game_list) == 0) {
     cli::cli_alert_warning("No games with JSON. Skipping.")
-    logging("No games with JSON, skipping season", "WARN")
     return(NULL)
   }
 
@@ -205,7 +194,6 @@ all_games <- purrr::map(years_vec, function(season_year) {
   )
 
   season_pbp <- dplyr::distinct(season_pbp)
-  logging(glue("{nrow(season_pbp)} PBP events compiled"))
   cli::cli_alert_info("{nrow(season_pbp)} PBP events")
 
   if (nrow(season_pbp) > 0) {
@@ -217,7 +205,7 @@ all_games <- purrr::map(years_vec, function(season_year) {
     season_pbp |> saveRDS(glue("pwhl/pbp/rds/{pbp_name}.rds"), compress = "xz")
     season_pbp |> arrow::write_parquet(glue("pwhl/pbp/parquet/{pbp_name}.parquet"), compression = "gzip")
 
-    logging(glue("Uploading {pbp_name} to sportsdataverse-data releases"))
+    cli::cli_alert_info("Uploading {pbp_name} to sportsdataverse-data releases")
     .upload_to_release(season_pbp, pbp_name, "pwhl_pbp", "PWHL play-by-play data")
   }
 
@@ -272,7 +260,6 @@ all_games <- purrr::map(years_vec, function(season_year) {
 
   if (nrow(season_player_box) > 0) {
     .save_dataset(season_player_box, "pwhl/player_box", "player_box", season_year)
-    logging(glue("{nrow(season_skaters)} skater + {nrow(season_goalies)} goalie rows"))
     cli::cli_alert_info("{nrow(season_skaters)} skater + {nrow(season_goalies)} goalie rows")
     .upload_to_release(
       season_player_box, glue("player_box_{season_year}"),
@@ -314,7 +301,6 @@ all_games <- purrr::map(years_vec, function(season_year) {
       dplyr::distinct() %>%
       dplyr::mutate(season = season_year)
     .save_dataset(season_rosters, "pwhl/rosters", "rosters", season_year)
-    logging(glue("{nrow(season_rosters)} unique roster entries"))
     cli::cli_alert_info("{nrow(season_rosters)} unique roster entries")
     .upload_to_release(season_rosters, glue("rosters_{season_year}"),
                        "pwhl_rosters", "PWHL rosters")
@@ -351,7 +337,6 @@ all_games <- purrr::map(years_vec, function(season_year) {
 
   if (nrow(season_game_summaries) > 0) {
     .save_dataset(season_game_summaries, "pwhl/game_summary", "game_summary", season_year)
-    logging(glue("{nrow(season_game_summaries)} game summary rows"))
     cli::cli_alert_info("{nrow(season_game_summaries)} game summary rows")
   }
 
@@ -389,7 +374,6 @@ all_games <- purrr::map(years_vec, function(season_year) {
   )
 
   cli::cli_alert_success("Done with {season_year}")
-  logging(glue("Completed {season_year}: {nrow(season_pbp)} PBP, {nrow(season_player_box)} player_box"))
 
   rm(
     season_pbp, season_skaters, season_goalies,
@@ -433,8 +417,7 @@ arrow::write_parquet(games_in_repo, "pwhl/pwhl_games_in_data_repo.parquet", comp
   "pwhl_schedules", "PWHL games available in fastRhockey data repo"
 )
 
-logging(glue("Master: {nrow(sched_all)} schedule rows, {nrow(games_in_repo)} with PBP"))
 cli::cli_alert_success("{nrow(sched_all)} total schedule rows, {nrow(games_in_repo)} with PBP")
 
-logging("=== PWHL Data Creation complete ===")
+cli::cli_alert_info("=== PWHL Data Creation complete ===")
 cli::cli_h1("All done!")

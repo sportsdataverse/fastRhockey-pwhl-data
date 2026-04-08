@@ -15,19 +15,23 @@ if [ -z "$START_YEAR" ] || [ -z "$END_YEAR" ]; then
     exit 1
 fi
 
+mkdir -p logs
 for i in $(seq "${START_YEAR}" "${END_YEAR}")
 do
+    LOGFILE="logs/fastRhockey_pwhl_data_logfile_${i}.log"
     echo "=== Processing PWHL data for season $i ==="
-    git pull >> /dev/null
-    git config --local user.email "action@github.com"
-    git config --local user.name "Github Action"
-    Rscript R/pwhl_data_creation.R -s $i -e $i
-    git pull >> /dev/null
-    git add pwhl/* >> /dev/null
-    git add logs/* >> /dev/null
-    git pull >> /dev/null
-    git add . >> /dev/null
-    git commit -m "PWHL Data Updated (Start: $i End: $i)" || echo "No changes to commit"
-    git pull >> /dev/null
-    git push >> /dev/null
+    {
+        git pull >> /dev/null
+        git config --local user.email "action@github.com"
+        git config --local user.name "Github Action"
+        Rscript R/pwhl_data_creation.R -s $i -e $i
+        git pull >> /dev/null
+        git add pwhl/* >> /dev/null
+        git add logs/* >> /dev/null
+        git pull >> /dev/null
+        git add . >> /dev/null
+        git commit -m "PWHL Data Updated (Start: $i End: $i)" || echo "No changes to commit"
+        git pull >> /dev/null
+        git push >> /dev/null
+    } 2>&1 | tee "$LOGFILE"
 done
