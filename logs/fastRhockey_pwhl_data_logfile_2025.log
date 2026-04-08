@@ -1,10 +1,12 @@
+From https://github.com/sportsdataverse/fastRhockey-pwhl-data
+   5c450fe..42a4c06  main       -> origin/main
 ℹ === PWHL Data Creation started ===
 ℹ Processing seasons: 2025
 
 ── Processing 2025 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2025 schedule from pwhl-raw
 ℹ 102 games with final JSON in raw repo
-ℹ Downloading 2025 schedule from pwhl-raw✔ Downloaded 2025 schedule [167ms]
+ℹ Downloading 2025 schedule from pwhl-raw✔ Downloaded 2025 schedule [150ms]
 
 ℹ Compiling 2025 PBP (102 games)
 ℹ 12520 PBP events
@@ -13,8 +15,8 @@
 ℹ Compiling 2025 PBP (102 games)ℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
 ℹ Compiling 2025 PBP (102 games)✔ Upload successfully completed.
-ℹ Compiling 2025 PBP (102 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-08 12:49:32.180731
-ℹ Compiling 2025 PBP (102 games)✔ Compiled 2025 PBP! [10.4s]
+ℹ Compiling 2025 PBP (102 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-08 16:15:31.802481
+ℹ Compiling 2025 PBP (102 games)✔ Compiled 2025 PBP! [10s]
 
 ℹ Compiling 2025 player boxscores
 Error in `purrr::map()`:
@@ -40,6 +42,6 @@ Backtrace:
  15.       └─vctrs:::stop_incompatible(...)
  16.         └─vctrs:::stop_vctrs(...)
  17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call)
-✖ Compiling 2025 player boxscores [8.7s]
+✖ Compiling 2025 player boxscores [7.7s]
 
 Execution halted
