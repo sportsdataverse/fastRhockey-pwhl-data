@@ -375,6 +375,12 @@ all_games <- purrr::map(years_vec, function(season_year) {
     compression = "gzip"
   )
 
+  # Upload the single-season schedule (with data availability flags) to release
+  .upload_to_release(
+    final_sched, glue("pwhl_schedule_{season_year}"),
+    "pwhl_schedules", "PWHL schedule"
+  )
+
   cli::cli_alert_success("Done with {season_year}")
   logging(glue("Completed {season_year}: {nrow(season_pbp)} PBP, {nrow(season_player_box)} player_box"))
 
