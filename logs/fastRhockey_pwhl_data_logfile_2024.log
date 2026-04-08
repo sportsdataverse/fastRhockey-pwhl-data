@@ -4,14 +4,23 @@
 ── Processing 2024 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2024 schedule from pwhl-raw
 ℹ 85 games with final JSON in raw repo
-ℹ Downloading 2024 schedule from pwhl-raw✔ Downloaded 2024 schedule [233ms]
+ℹ Downloading 2024 schedule from pwhl-raw✔ Downloaded 2024 schedule [362ms]
 
 ℹ Compiling 2024 PBP (85 games)
-ℹ 14066 PBP events
-ℹ Compiling 2024 PBP (85 games)Error in `purrr::map()`:
+ℹ 10456 PBP events
+ℹ Compiling 2024 PBP (85 games)ℹ Uploading play_by_play_2024 to sportsdataverse-data releases
+ℹ Compiling 2024 PBP (85 games)→ Uploading 3 files!
+ℹ Compiling 2024 PBP (85 games)ℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
+ℹ Compiling 2024 PBP (85 games)✔ Upload successfully completed.
+ℹ Compiling 2024 PBP (85 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-08 12:32:23.238059
+ℹ Compiling 2024 PBP (85 games)✔ Compiled 2024 PBP! [12.6s]
+
+ℹ Compiling 2024 player boxscores
+Error in `purrr::map()`:
 ℹ In index: 1.
-Caused by error:
-! Invalid: Can only convert data frames to Struct type
+Caused by error in `dplyr::bind_rows()`:
+! Can't combine `..1$starting` <character> and `..2$starting` <integer>.
 Backtrace:
      ▆
   1. ├─purrr::map(...)
@@ -20,20 +29,17 @@ Backtrace:
   4. │   │ └─base::withCallingHandlers(...)
   5. │   ├─purrr:::call_with_cleanup(...)
   6. │   └─global .f(.x[[i]], ...)
-  7. │     └─arrow::write_parquet(...)
-  8. │       └─arrow:::as_writable_table(x)
-  9. │         ├─base::tryCatch(...)
- 10. │         │ └─base (local) tryCatchList(expr, classes, parentenv, handlers)
- 11. │         │   └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])
- 12. │         │     └─base (local) doTryCatch(return(expr), name, parentenv, handler)
- 13. │         ├─arrow::as_arrow_table(x)
- 14. │         └─arrow:::as_arrow_table.data.frame(x)
- 15. │           └─Table$create(x, schema = schema)
- 16. │             └─arrow:::Table__from_dots(dots, schema, option_use_threads())
- 17. └─base::.handleSimpleError(...)
- 18.   └─purrr (local) h(simpleError(msg, call))
- 19.     └─cli::cli_abort(...)
- 20.       └─rlang::abort(...)
-✖ Compiling 2024 PBP (85 games) [10.8s]
+  7. │     └─dplyr::bind_rows(...)
+  8. │       └─vctrs::vec_rbind(!!!dots, .names_to = .id, .error_call = current_env())
+  9. └─vctrs (local) `<fn>`()
+ 10.   └─vctrs::vec_default_ptype2(...)
+ 11.     ├─base::withRestarts(...)
+ 12.     │ └─base (local) withOneRestart(expr, restarts[[1L]])
+ 13.     │   └─base (local) doWithOneRestart(return(expr), restart)
+ 14.     └─vctrs::stop_incompatible_type(...)
+ 15.       └─vctrs:::stop_incompatible(...)
+ 16.         └─vctrs:::stop_vctrs(...)
+ 17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call)
+✖ Compiling 2024 player boxscores [6.3s]
 
 Execution halted
