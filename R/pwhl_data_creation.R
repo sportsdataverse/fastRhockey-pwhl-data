@@ -31,7 +31,7 @@ option_list <- list(
   optparse::make_option(
     c("-s", "--start_year"),
     action = "store",
-    default = fastRhockey:::most_recent_pwhl_season(),
+    default = fastRhockey::most_recent_pwhl_season(),
     type = "integer",
     help = "Start year of the seasons to process [default: current season]"
   ),
