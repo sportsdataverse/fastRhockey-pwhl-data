@@ -66,8 +66,8 @@ jobs:
       - name: Check for empty inputs
         if: ${{ env.START_YEAR == '' }}
         run: |
-          echo START_YEAR=$(Rscript -e "cat(fastRhockey:::most_recent_pwhl_season())") >> $GITHUB_ENV
-          echo END_YEAR=$(Rscript -e "cat(fastRhockey:::most_recent_pwhl_season())") >> $GITHUB_ENV
+          echo START_YEAR=$(Rscript -e "cat(fastRhockey::most_recent_pwhl_season())") >> $GITHUB_ENV
+          echo END_YEAR=$(Rscript -e "cat(fastRhockey::most_recent_pwhl_season())") >> $GITHUB_ENV
 
       - name: Update PWHL Data ${{ env.START_YEAR }}-${{ env.END_YEAR }}
         env:
