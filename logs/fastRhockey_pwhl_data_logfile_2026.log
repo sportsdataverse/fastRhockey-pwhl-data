@@ -3,24 +3,15 @@
 
 ── Processing 2026 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2026 schedule from pwhl-raw
-ℹ 101 games with final JSON in raw repo
-ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [358ms]
+ℹ 102 games with final JSON in raw repo
+ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [198ms]
 
-ℹ Compiling 2026 PBP (101 games)
-ℹ 12228 PBP events
-ℹ Compiling 2026 PBP (101 games)ℹ Uploading play_by_play_2026 to sportsdataverse-data releases
-ℹ Compiling 2026 PBP (101 games)→ Uploading 3 files!
-ℹ Compiling 2026 PBP (101 games)ℹ Start upload of 7 files to
-<https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
-ℹ Compiling 2026 PBP (101 games)✔ Upload successfully completed.
-ℹ Compiling 2026 PBP (101 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-08 16:12:07.765806
-ℹ Compiling 2026 PBP (101 games)✔ Compiled 2026 PBP! [16.7s]
-
-ℹ Compiling 2026 player boxscores
-Error in `purrr::map()`:
+ℹ Compiling 2026 PBP (102 games)
+ℹ 17956 PBP events
+ℹ Compiling 2026 PBP (102 games)Error in `purrr::map()`:
 ℹ In index: 1.
-Caused by error in `dplyr::bind_rows()`:
-! Can't combine `..1$starting` <character> and `..2$starting` <integer>.
+Caused by error:
+! Invalid: Can only convert data frames to Struct type
 Backtrace:
      ▆
   1. ├─purrr::map(...)
@@ -29,17 +20,20 @@ Backtrace:
   4. │   │ └─base::withCallingHandlers(...)
   5. │   ├─purrr:::call_with_cleanup(...)
   6. │   └─global .f(.x[[i]], ...)
-  7. │     └─dplyr::bind_rows(...)
-  8. │       └─vctrs::vec_rbind(!!!dots, .names_to = .id, .error_call = current_env())
-  9. └─vctrs (local) `<fn>`()
- 10.   └─vctrs::vec_default_ptype2(...)
- 11.     ├─base::withRestarts(...)
- 12.     │ └─base (local) withOneRestart(expr, restarts[[1L]])
- 13.     │   └─base (local) doWithOneRestart(return(expr), restart)
- 14.     └─vctrs::stop_incompatible_type(...)
- 15.       └─vctrs:::stop_incompatible(...)
- 16.         └─vctrs:::stop_vctrs(...)
- 17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call)
-✖ Compiling 2026 player boxscores [9.2s]
+  7. │     └─arrow::write_parquet(...)
+  8. │       └─arrow:::as_writable_table(x)
+  9. │         ├─base::tryCatch(...)
+ 10. │         │ └─base (local) tryCatchList(expr, classes, parentenv, handlers)
+ 11. │         │   └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 12. │         │     └─base (local) doTryCatch(return(expr), name, parentenv, handler)
+ 13. │         ├─arrow::as_arrow_table(x)
+ 14. │         └─arrow:::as_arrow_table.data.frame(x)
+ 15. │           └─Table$create(x, schema = schema)
+ 16. │             └─arrow:::Table__from_dots(dots, schema, option_use_threads())
+ 17. └─base::.handleSimpleError(...)
+ 18.   └─purrr (local) h(simpleError(msg, call))
+ 19.     └─cli::cli_abort(...)
+ 20.       └─rlang::abort(...)
+✖ Compiling 2026 PBP (102 games) [13.3s]
 
 Execution halted
