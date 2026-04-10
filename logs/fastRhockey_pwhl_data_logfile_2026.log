@@ -4,7 +4,7 @@
 ── Processing 2026 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2026 schedule from pwhl-raw
 ℹ 102 games with final JSON in raw repo
-ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [198ms]
+ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [225ms]
 
 ℹ Compiling 2026 PBP (102 games)
 ℹ 17956 PBP events
@@ -34,6 +34,6 @@ Backtrace:
  18.   └─purrr (local) h(simpleError(msg, call))
  19.     └─cli::cli_abort(...)
  20.       └─rlang::abort(...)
-✖ Compiling 2026 PBP (102 games) [13.3s]
+✖ Compiling 2026 PBP (102 games) [13.2s]
 
 Execution halted
