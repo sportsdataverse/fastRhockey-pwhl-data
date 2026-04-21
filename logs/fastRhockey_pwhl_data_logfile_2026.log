@@ -4,7 +4,7 @@
 ── Processing 2026 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2026 schedule from pwhl-raw
 ℹ 112 games with final JSON in raw repo
-ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [166ms]
+ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [163ms]
 
 ℹ Compiling 2026 PBP (112 games)
 ℹ 13611 PBP events
@@ -13,8 +13,8 @@
 ℹ Compiling 2026 PBP (112 games)ℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
 ℹ Compiling 2026 PBP (112 games)✔ Upload successfully completed.
-ℹ Compiling 2026 PBP (112 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-20 10:31:19.103741
-ℹ Compiling 2026 PBP (112 games)✔ Compiled 2026 PBP! [11.6s]
+ℹ Compiling 2026 PBP (112 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-21 10:17:01.208254
+ℹ Compiling 2026 PBP (112 games)✔ Compiled 2026 PBP! [11.7s]
 
 ℹ Compiling 2026 player boxscores
 Error in `purrr::map()`:
@@ -40,6 +40,6 @@ Backtrace:
  15.       └─vctrs:::stop_incompatible(...) at vctrs/R/conditions.R:146:3
  16.         └─vctrs:::stop_vctrs(...) at vctrs/R/conditions.R:95:3
  17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call) at vctrs/R/conditions.R:65:3
-✖ Compiling 2026 player boxscores [9.8s]
+✖ Compiling 2026 player boxscores [9.1s]
 
 Execution halted
