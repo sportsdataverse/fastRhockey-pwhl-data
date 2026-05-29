@@ -1,12 +1,10 @@
-From https://github.com/sportsdataverse/fastRhockey-pwhl-data
-   5c450fe..42a4c06  main       -> origin/main
 ℹ === PWHL Data Creation started ===
 ℹ Processing seasons: 2025
 
 ── Processing 2025 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2025 schedule from pwhl-raw
 ℹ 102 games with final JSON in raw repo
-ℹ Downloading 2025 schedule from pwhl-raw✔ Downloaded 2025 schedule [150ms]
+ℹ Downloading 2025 schedule from pwhl-raw✔ Downloaded 2025 schedule [222ms]
 
 ℹ Compiling 2025 PBP (102 games)
 ℹ 12520 PBP events
@@ -15,8 +13,8 @@ From https://github.com/sportsdataverse/fastRhockey-pwhl-data
 ℹ Compiling 2025 PBP (102 games)ℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
 ℹ Compiling 2025 PBP (102 games)✔ Upload successfully completed.
-ℹ Compiling 2025 PBP (102 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-04-08 16:15:31.802481
-ℹ Compiling 2025 PBP (102 games)✔ Compiled 2025 PBP! [10s]
+ℹ Compiling 2025 PBP (102 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-05-29 11:36:28.387872
+ℹ Compiling 2025 PBP (102 games)✔ Compiled 2025 PBP! [12.9s]
 
 ℹ Compiling 2025 player boxscores
 Error in `purrr::map()`:
@@ -33,15 +31,15 @@ Backtrace:
   6. │   └─global .f(.x[[i]], ...)
   7. │     └─dplyr::bind_rows(...)
   8. │       └─vctrs::vec_rbind(!!!dots, .names_to = .id, .error_call = current_env())
-  9. └─vctrs (local) `<fn>`()
+  9. └─vctrs (local) `<fn>`() at vctrs/R/bind.R:194:3
  10.   └─vctrs::vec_default_ptype2(...)
- 11.     ├─base::withRestarts(...)
+ 11.     ├─base::withRestarts(...) at vctrs/R/type2.R:178:3
  12.     │ └─base (local) withOneRestart(expr, restarts[[1L]])
  13.     │   └─base (local) doWithOneRestart(return(expr), restart)
- 14.     └─vctrs::stop_incompatible_type(...)
- 15.       └─vctrs:::stop_incompatible(...)
- 16.         └─vctrs:::stop_vctrs(...)
- 17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call)
-✖ Compiling 2025 player boxscores [7.7s]
+ 14.     └─vctrs::stop_incompatible_type(...) at vctrs/R/type2.R:178:3
+ 15.       └─vctrs:::stop_incompatible(...) at vctrs/R/conditions.R:146:3
+ 16.         └─vctrs:::stop_vctrs(...) at vctrs/R/conditions.R:95:3
+ 17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call) at vctrs/R/conditions.R:65:3
+✖ Compiling 2025 player boxscores [9s]
 
 Execution halted
