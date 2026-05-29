@@ -1,2 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.github$
+^\.gitignore$
+^\.gitattributes$
+^\.git$
+^CLAUDE\.md$
+^pwhl$
+^logs$
+^daily_.*\.out$
+^.*\.out$
