@@ -162,9 +162,26 @@ DATASETS <- tibble::tribble(
     if (!dir.exists(d)) dir.create(d, recursive = TRUE)
   }
   saveRDS(df, file.path(rds_dir, glue("{name}_{season}.rds")), compress = "xz")
-  arrow::write_parquet(df, file.path(parquet_dir, glue("{name}_{season}.parquet")),
+  # arrow::write_parquet can't write nested data.frame columns ("structs").
+  # PWHL JSON is parsed with flatten = TRUE so this is rarely needed, but
+  # defensive flattening here matches the NHL data-creation behavior and
+  # protects against any HockeyTech field that comes through nested.
+  arrow::write_parquet(.flatten_struct_cols(df),
+    file.path(parquet_dir, glue("{name}_{season}.parquet")),
     compression = "gzip"
   )
+}
+
+# Recursively unfold nested data.frame columns into dot-prefixed scalar
+# columns so arrow can write the row group. Loops until no struct columns
+# remain (or 5 passes max to bound deeply-nested edge cases).
+.flatten_struct_cols <- function(df) {
+  if (!is.data.frame(df) || nrow(df) == 0) return(df)
+  for (iter in seq_len(5L)) {
+    if (!any(vapply(df, is.data.frame, logical(1)))) break
+    df <- jsonlite::flatten(df)
+  }
+  df
 }
 
 # Cache release-existence checks so we hit `gh` once per tag, not once per file.
@@ -335,8 +352,20 @@ invisible(purrr::map(years_vec, function(season_year) {
     }
 
     cli::cli_alert_info("{key}: {nrow(df)} rows")
-    .save_dataset(df, file.path("pwhl", key), pref, season_year)
-    .upload_to_release(df, glue("{pref}_{season_year}"), rtag, desc)
+    # Per-dataset tryCatch: a single dataset's save/upload failure
+    # (e.g. arrow refusing a struct column, transient release upload
+    # 5xx) should not abort the rest of the season's compile.
+    tryCatch(
+      {
+        .save_dataset(df, file.path("pwhl", key), pref, season_year)
+        .upload_to_release(df, glue("{pref}_{season_year}"), rtag, desc)
+      },
+      error = function(e) {
+        cli::cli_alert_warning(
+          "{key}: save/upload failed -- {conditionMessage(e)}"
+        )
+      }
+    )
   }
 
   # Player box (combined skater + goalie)
