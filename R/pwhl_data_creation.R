@@ -78,7 +78,7 @@ DATASETS <- tibble::tribble(
   "three_stars",     "three_stars",       "three_stars",      "pwhl_three_stars",       "PWHL three stars",
   "officials",       "officials",         "officials",        "pwhl_officials",         "PWHL on-ice officials",
   "shots_by_period", "shots_by_period",   "shots_by_period",  "pwhl_shots_by_period",   "PWHL shots by period",
-  "shootout",        "shootout",          "shootout_summary", "pwhl_shootout",          "PWHL shootout summary"
+  "shootout",        "shootout_summary",  "shootout_summary", "pwhl_shootout",          "PWHL shootout summary"
 )
 
 
