@@ -172,15 +172,43 @@ DATASETS <- tibble::tribble(
   )
 }
 
-# Recursively unfold nested data.frame columns into dot-prefixed scalar
-# columns so arrow can write the row group. Loops until no struct columns
-# remain (or 5 passes max to bound deeply-nested edge cases).
+# Recursively unfold structures that arrow cannot write to parquet:
+#   1. Nested data.frame columns (jsonlite produces them when a JSON
+#      field is itself an object); jsonlite::flatten() unfolds one
+#      level per call so we loop up to 5 times.
+#   2. List columns where each row holds a per-row named list (e.g.
+#      HockeyTech name objects with locale fallbacks). jsonlite::flatten
+#      does NOT touch these because the column type is `list`, not
+#      `data.frame`; extract a usable scalar with vapply -- prefer a
+#      `$default` slot, then any length-1 atomic, else a JSON string.
 .flatten_struct_cols <- function(df) {
   if (!is.data.frame(df) || nrow(df) == 0) return(df)
+
   for (iter in seq_len(5L)) {
     if (!any(vapply(df, is.data.frame, logical(1)))) break
     df <- jsonlite::flatten(df)
   }
+
+  for (col in names(df)) {
+    x <- df[[col]]
+    if (is.list(x) && !is.data.frame(x)) {
+      df[[col]] <- vapply(x, function(elem) {
+        if (is.null(elem) || length(elem) == 0) {
+          NA_character_
+        } else if (is.list(elem) && !is.null(elem$default)) {
+          as.character(elem$default)[[1]]
+        } else if (is.atomic(elem) && length(elem) == 1L) {
+          as.character(elem)
+        } else {
+          tryCatch(
+            jsonlite::toJSON(elem, auto_unbox = TRUE, na = "null"),
+            error = function(e) NA_character_
+          )
+        }
+      }, character(1))
+    }
+  }
+
   df
 }
 
@@ -354,11 +382,15 @@ invisible(purrr::map(years_vec, function(season_year) {
     cli::cli_alert_info("{key}: {nrow(df)} rows")
     # Per-dataset tryCatch: a single dataset's save/upload failure
     # (e.g. arrow refusing a struct column, transient release upload
-    # 5xx) should not abort the rest of the season's compile.
+    # 5xx) should not abort the rest of the season's compile. Flatten
+    # once up front so .save_dataset, .upload_to_release, and any
+    # tibble construction inside sportsdataverse_save all see scalar
+    # dot-prefixed columns rather than nested data.frame / list cols.
     tryCatch(
       {
-        .save_dataset(df, file.path("pwhl", key), pref, season_year)
-        .upload_to_release(df, glue("{pref}_{season_year}"), rtag, desc)
+        df_flat <- .flatten_struct_cols(df)
+        .save_dataset(df_flat, file.path("pwhl", key), pref, season_year)
+        .upload_to_release(df_flat, glue("{pref}_{season_year}"), rtag, desc)
       },
       error = function(e) {
         cli::cli_alert_warning(
