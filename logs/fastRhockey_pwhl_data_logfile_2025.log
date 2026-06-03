@@ -4,42 +4,162 @@
 ── Processing 2025 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2025 schedule from pwhl-raw
 ℹ 102 games with final JSON in raw repo
-ℹ Downloading 2025 schedule from pwhl-raw✔ Downloaded 2025 schedule [222ms]
+ℹ Downloading 2025 schedule from pwhl-raw✔ Downloaded 2025 schedule [209ms]
 
-ℹ Compiling 2025 PBP (102 games)
-ℹ 12520 PBP events
-ℹ Compiling 2025 PBP (102 games)ℹ Uploading play_by_play_2025 to sportsdataverse-data releases
-ℹ Compiling 2025 PBP (102 games)→ Uploading 3 files!
-ℹ Compiling 2025 PBP (102 games)ℹ Start upload of 7 files to
+ℹ Reading 102 game JSONs and extracting datasets
+ℹ pbp: 12520 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
-ℹ Compiling 2025 PBP (102 games)✔ Upload successfully completed.
-ℹ Compiling 2025 PBP (102 games)→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-05-29 11:36:28.387872
-ℹ Compiling 2025 PBP (102 games)✔ Compiled 2025 PBP! [12.9s]
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-06-03 01:43:14.757485
+ℹ Reading 102 game JSONs and extracting datasetsℹ skater_box: 3867 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_skater_boxscores
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_skater_boxscores on 2026-06-03 01:43:17.598331
+ℹ Reading 102 game JSONs and extracting datasetsℹ goalie_box: 408 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_goalie_boxscores
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_goalie_boxscores on 2026-06-03 01:43:20.319011
+ℹ Reading 102 game JSONs and extracting datasetsℹ team_box: 204 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_team_boxscores
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_team_boxscores on 2026-06-03 01:43:22.889546
+ℹ Reading 102 game JSONs and extracting datasetsℹ game_info: 102 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_game_info
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_game_info on 2026-06-03 01:43:25.525895
+ℹ Reading 102 game JSONs and extracting datasetsℹ game_rosters: 4275 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_game_rosters
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_game_rosters on 2026-06-03 01:43:28.534909
+ℹ Reading 102 game JSONs and extracting datasetsℹ scoring_summary: 499 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_scoring_summary
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_scoring_summary on 2026-06-03 01:43:31.281364
+ℹ Reading 102 game JSONs and extracting datasetsℹ penalty_summary: 662 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_penalty_summary
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_penalty_summary on 2026-06-03 01:43:33.811268
+ℹ Reading 102 game JSONs and extracting datasetsℹ three_stars: 306 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_three_stars
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_three_stars on 2026-06-03 01:43:36.633032
+ℹ Reading 102 game JSONs and extracting datasetsℹ officials: 404 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_officials
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_officials on 2026-06-03 01:43:39.31422
+ℹ Reading 102 game JSONs and extracting datasetsℹ shots_by_period: 344 rows
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_shots_by_period
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_shots_by_period on 2026-06-03 01:43:41.952935
+ℹ Reading 102 game JSONs and extracting datasetsℹ shootout: 0 rows -> skipped
+ℹ Reading 102 game JSONs and extracting datasets→ Uploading 3 files!
+ℹ Reading 102 game JSONs and extracting datasetsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_player_boxscores
+ℹ Reading 102 game JSONs and extracting datasets✔ Upload successfully completed.
+ℹ Reading 102 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_player_boxscores on 2026-06-03 01:43:44.715036
+ℹ Reading 102 game JSONs and extracting datasetsℹ player_box: 4275 rows
+ℹ Reading 102 game JSONs and extracting datasets✔ Extracted per-game datasets [41.7s]
 
-ℹ Compiling 2025 player boxscores
-Error in `purrr::map()`:
-ℹ In index: 1.
-Caused by error in `dplyr::bind_rows()`:
-! Can't combine `..1$starting` <character> and `..2$starting` <integer>.
-Backtrace:
-     ▆
-  1. ├─purrr::map(...)
-  2. │ └─purrr:::map_("list", .x, .f, ..., .progress = .progress)
-  3. │   ├─purrr:::with_indexed_errors(...)
-  4. │   │ └─base::withCallingHandlers(...)
-  5. │   ├─purrr:::call_with_cleanup(...)
-  6. │   └─global .f(.x[[i]], ...)
-  7. │     └─dplyr::bind_rows(...)
-  8. │       └─vctrs::vec_rbind(!!!dots, .names_to = .id, .error_call = current_env())
-  9. └─vctrs (local) `<fn>`() at vctrs/R/bind.R:194:3
- 10.   └─vctrs::vec_default_ptype2(...)
- 11.     ├─base::withRestarts(...) at vctrs/R/type2.R:178:3
- 12.     │ └─base (local) withOneRestart(expr, restarts[[1L]])
- 13.     │   └─base (local) doWithOneRestart(return(expr), restart)
- 14.     └─vctrs::stop_incompatible_type(...) at vctrs/R/type2.R:178:3
- 15.       └─vctrs:::stop_incompatible(...) at vctrs/R/conditions.R:146:3
- 16.         └─vctrs:::stop_vctrs(...) at vctrs/R/conditions.R:95:3
- 17.           └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = call) at vctrs/R/conditions.R:65:3
-✖ Compiling 2025 player boxscores [9s]
+ℹ Compiling 2025 season rosters
+→ Uploading 3 files!
+ℹ Compiling 2025 season rostersℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_rosters
+ℹ Compiling 2025 season rosters✔ Upload successfully completed.
+ℹ Compiling 2025 season rosters→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_rosters on 2026-06-03 01:43:47.414247
+ℹ Compiling 2025 season rostersℹ rosters: 506 unique entries
+ℹ Compiling 2025 season rosters✔ Compiled 2025 season rosters [2.7s]
 
-Execution halted
+ℹ Updating 2025 schedule flags
+→ Uploading 3 files!
+ℹ Updating 2025 schedule flagsℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Updating 2025 schedule flags✔ Upload successfully completed.
+ℹ Updating 2025 schedule flags→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-06-03 01:43:50.039014
+ℹ Updating 2025 schedule flags✔ Done with 2025
+ℹ Updating 2025 schedule flags✔ Updated 2025 schedule flags [2.8s]
+
+Warning message:
+In checkNumberOfLocalWorkers(workers) :
+  Careful, you are setting up 6 localhost parallel workers with only 4 CPU cores available for this R process (per ‘system’), which could result in a 150% load. The soft limit is set to 100%. Overusing the CPUs has negative impact on the current R process, but also on all other processes of yours and others running on the same machine. See help("parallelly.maxWorkers.localhost", package = "parallelly") for further explanations and how to override the soft limit that triggered this warning
+ℹ Building master schedule + pwhl_games_in_data_repo
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-06-03 01:43:52.726467
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-246"
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-06-03 01:43:54.833511
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-257"
+✔ 320 total schedule rows, 320 with PBP
+ℹ Building master schedule + pwhl_games_in_data_repoℹ === PWHL Data Creation complete ===
+ℹ Building master schedule + pwhl_games_in_data_repo
+ℹ Building master schedule + pwhl_games_in_data_repo── All done! ───────────────────────────────────────────────────────────────────
+ℹ Building master schedule + pwhl_games_in_data_repo[main e84e8c3] PWHL Data Updated (Start: 2025 End: 2025)
+ 30 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 pwhl/game_info/parquet/game_info_2025.parquet
+ create mode 100644 pwhl/game_info/rds/game_info_2025.rds
+ create mode 100644 pwhl/game_rosters/parquet/game_rosters_2025.parquet
+ create mode 100644 pwhl/game_rosters/rds/game_rosters_2025.rds
+ create mode 100644 pwhl/goalie_box/parquet/goalie_box_2025.parquet
+ create mode 100644 pwhl/goalie_box/rds/goalie_box_2025.rds
+ create mode 100644 pwhl/officials/parquet/officials_2025.parquet
+ create mode 100644 pwhl/officials/rds/officials_2025.rds
+ create mode 100644 pwhl/penalty_summary/parquet/penalty_summary_2025.parquet
+ create mode 100644 pwhl/penalty_summary/rds/penalty_summary_2025.rds
+ create mode 100644 pwhl/player_box/parquet/player_box_2025.parquet
+ create mode 100644 pwhl/player_box/rds/player_box_2025.rds
+ create mode 100644 pwhl/rosters/parquet/rosters_2025.parquet
+ create mode 100644 pwhl/rosters/rds/rosters_2025.rds
+ create mode 100644 pwhl/scoring_summary/parquet/scoring_summary_2025.parquet
+ create mode 100644 pwhl/scoring_summary/rds/scoring_summary_2025.rds
+ create mode 100644 pwhl/shots_by_period/parquet/shots_by_period_2025.parquet
+ create mode 100644 pwhl/shots_by_period/rds/shots_by_period_2025.rds
+ create mode 100644 pwhl/skater_box/parquet/skater_box_2025.parquet
+ create mode 100644 pwhl/skater_box/rds/skater_box_2025.rds
+ create mode 100644 pwhl/team_box/parquet/team_box_2025.parquet
+ create mode 100644 pwhl/team_box/rds/team_box_2025.rds
+ create mode 100644 pwhl/three_stars/parquet/three_stars_2025.parquet
+ create mode 100644 pwhl/three_stars/rds/three_stars_2025.rds
+To https://github.com/sportsdataverse/fastRhockey-pwhl-data
+   4486871..e84e8c3  main -> main
