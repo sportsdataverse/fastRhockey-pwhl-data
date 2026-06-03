@@ -138,6 +138,18 @@ DATASETS <- tibble::tribble(
     if (!is.null(df) && nrow(df) > 0) out[[key]] <- df
   }
 
+  # The HockeyTech feed serializes the 0/1 `starting` flag as a string for
+  # skaters ("1"/"0") but an integer for goalies (1/0). Coerce to a common
+  # integer type so skater_box + goalie_box bind cleanly into player_box (and so
+  # the standalone skater/goalie boxscores agree on the column type) instead of
+  # tripping a vctrs "Can't combine <character>/<integer>" error that previously
+  # halted the player-box compile (or dropped goalies via the bind fallback).
+  for (k in c("skater_box", "goalie_box")) {
+    if (!is.null(out[[k]]) && "starting" %in% names(out[[k]])) {
+      out[[k]]$starting <- suppressWarnings(as.integer(out[[k]]$starting))
+    }
+  }
+
   # Player box = bind of skater_box + goalie_box, with a player_type tag
   parts <- list()
   if (!is.null(out[["skater_box"]])) {
