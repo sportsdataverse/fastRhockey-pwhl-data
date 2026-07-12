@@ -68,6 +68,7 @@ RAW_BASE <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-
 DATASETS <- tibble::tribble(
   ~key,              ~json_field,         ~file_prefix,       ~release_tag,             ~description,
   "pbp",             "pbp",               "play_by_play",     "pwhl_pbp",               "PWHL play-by-play data",
+  "shifts",          "shifts",            "shifts",           "pwhl_shifts",            "PWHL per-game player shifts (on-ice stints)",
   "skater_box",      "skaters",           "skater_box",       "pwhl_skater_boxscores",  "PWHL skater boxscores",
   "goalie_box",      "goalies",           "goalie_box",       "pwhl_goalie_boxscores",  "PWHL goalie boxscores",
   "team_box",        "team_box",          "team_box",         "pwhl_team_boxscores",    "PWHL team boxscores",

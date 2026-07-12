@@ -27,6 +27,14 @@ piggyback::pb_release_create(
 
 piggyback::pb_release_create(
   repo = "sportsdataverse/sportsdataverse-data",
+  tag = "pwhl_shifts",
+  name = "pwhl_shifts",
+  body = "PWHL Per-Game Player Shifts / On-Ice Stints (from HockeyTech API)",
+  .token = Sys.getenv("GITHUB_PAT", unset = system("gh auth token", intern = TRUE))
+)
+
+piggyback::pb_release_create(
+  repo = "sportsdataverse/sportsdataverse-data",
   tag = "pwhl_rosters",
   name = "pwhl_rosters",
   body = "PWHL Rosters Data (from HockeyTech API)",
