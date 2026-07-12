@@ -1,0 +1,739 @@
+ℹ === PWHL Data Creation started ===
+ℹ Processing seasons: 602
+
+── Processing 602 PWHL season ──────────────────────────────────────────────────
+ℹ Downloading 602 schedule from pwhl-raw
+✖ Failed to read RDS from https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_602.rds: cannot open the connection to 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_602.rds'
+ℹ Downloading 602 schedule from pwhl-raw✖ Could not fetch schedule for 602. Skipping.
+ℹ Downloading 602 schedule from pwhl-raw✔ Downloaded 602 schedule [141ms]
+
+Warning message:
+In readRDS(con) :
+  cannot open URL 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_602.rds': HTTP status was '404 Not Found'
+ℹ Building master schedule + pwhl_games_in_data_repo
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 22:28:12.716469
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-33"
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D45:230469:45F478:628B76:6A5414FD and timestamp 2026-07-12 22:28:13 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_reporelease not found
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4A:2036CC:48CC5C:656941:6A541500 and timestamp 2026-07-12 22:28:16 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:45B5AE:624A67:6A541501 and timestamp 2026-07-12 22:28:18 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D45:230469:45F6B9:628EA5:6A541503 and timestamp 2026-07-12 22:28:19 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:461914:62B70A:6A541504 and timestamp 2026-07-12 22:28:20 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D55:20502A:462AF0:62C7EB:6A541506 and timestamp 2026-07-12 22:28:22 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:461C04:62BB06:6A54150C and timestamp 2026-07-12 22:28:28 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:45BBE5:6253EB:6A541517 and timestamp 2026-07-12 22:28:39 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:45BD47:625611:6A54151C and timestamp 2026-07-12 22:28:44 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3C4D70:529043:6A54153F and timestamp 2026-07-12 22:29:19 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:397B10:4FC6C8:6A541543 and timestamp 2026-07-12 22:29:24 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3C55B9:529BF6:6A541555 and timestamp 2026-07-12 22:29:41 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3C6BB6:52BA3F:6A54158A and timestamp 2026-07-12 22:30:34 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:45EB98:629B1F:6A5415AC and timestamp 2026-07-12 22:31:08 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4BDE7E:688F55:6A5415B1 and timestamp 2026-07-12 22:31:13 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3C8DC6:52E925:6A5415DA and timestamp 2026-07-12 22:31:54 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3C98C4:52F7B0:6A5415F1 and timestamp 2026-07-12 22:32:17 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3C9B28:52FB06:6A5415F8 and timestamp 2026-07-12 22:32:24 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:1729E5:205B97:2ACE6C:6A541601 and timestamp 2026-07-12 22:32:33 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+Error: Request failed after 20 attempts.
+Retrying in 60 seconds.
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:461F63:62E5D6:6A54163D and timestamp 2026-07-12 22:33:33 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4C1921:68E073:6A54163F and timestamp 2026-07-12 22:33:35 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4E:1F98A4:4B139D:67E630:6A541640 and timestamp 2026-07-12 22:33:36 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4F:1DBC23:453B34:6203E4:6A541642 and timestamp 2026-07-12 22:33:38 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:462207:62E984:6A541643 and timestamp 2026-07-12 22:33:39 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:2D2365:4848E1:651042:6A541644 and timestamp 2026-07-12 22:33:41 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4C1C8A:68E533:6A541647 and timestamp 2026-07-12 22:33:43 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:462470:62ECE5:6A541649 and timestamp 2026-07-12 22:33:45 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:4626D8:62F0DE:6A541653 and timestamp 2026-07-12 22:33:55 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4C22E3:68EE47:6A541658 and timestamp 2026-07-12 22:34:00 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3CDB67:535176:6A541684 and timestamp 2026-07-12 22:34:44 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3CE259:535AE8:6A541694 and timestamp 2026-07-12 22:35:00 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3CE7B7:536204:6A54169F and timestamp 2026-07-12 22:35:11 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:2E6720:1F6395:29F5B0:6A5416C7 and timestamp 2026-07-12 22:35:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:33B541:226568:2CF55C:6A5416E1 and timestamp 2026-07-12 22:36:17 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:33B541:227AF4:2D112F:6A541709 and timestamp 2026-07-12 22:36:57 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:2E6720:1F875E:2A254E:6A541715 and timestamp 2026-07-12 22:37:09 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D321A:53C460:6A541737 and timestamp 2026-07-12 22:37:43 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D35F6:53C96A:6A54173E and timestamp 2026-07-12 22:37:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:3A4CA4:50E872:6A541740 and timestamp 2026-07-12 22:37:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+Error: Request failed after 20 attempts.
+Retrying in 60 seconds.
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D4F5A:53ECA3:6A54177C and timestamp 2026-07-12 22:38:52 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D48:2D59C0:3A2D48:50D0CF:6A54177E and timestamp 2026-07-12 22:38:54 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4E:1FB8B2:3C0B60:52AA60:6A54177F and timestamp 2026-07-12 22:38:55 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D52:3E2FA8:410799:579A1A:6A541781 and timestamp 2026-07-12 22:38:57 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D5229:53F05F:6A541782 and timestamp 2026-07-12 22:38:58 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D40:315434:3E7D0B:55130A:6A541784 and timestamp 2026-07-12 22:39:00 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4A:30C891:3C7371:530A2B:6A541786 and timestamp 2026-07-12 22:39:02 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D51:19A3E7:3F1708:55ADCF:6A541787 and timestamp 2026-07-12 22:39:03 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D56C6:53F6A1:6A54178C and timestamp 2026-07-12 22:39:08 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:1729E5:21146B:2BC6F7:6A5417A4 and timestamp 2026-07-12 22:39:32 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3C94D7:533723:6A5417CF and timestamp 2026-07-12 22:40:16 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D913B:544410:6A541805 and timestamp 2026-07-12 22:41:09 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3D9DD0:5453F7:6A54181A and timestamp 2026-07-12 22:41:30 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:46E003:63FB33:6A541855 and timestamp 2026-07-12 22:42:29 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3DC9EA:548D83:6A54186F and timestamp 2026-07-12 22:42:55 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:2D2365:4940BF:66654F:6A541892 and timestamp 2026-07-12 22:43:30 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:470770:64314F:6A5418B2 and timestamp 2026-07-12 22:44:02 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:47D038:6504C4:6A5418BE and timestamp 2026-07-12 22:44:14 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:470F6B:643D6E:6A5418CD and timestamp 2026-07-12 22:44:29 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:33B541:238CD7:2E6EBD:6A5418FB and timestamp 2026-07-12 22:45:15 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+Error: Request failed after 20 attempts.
+Retrying in 60 seconds.
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3E252E:550857:6A541937 and timestamp 2026-07-12 22:46:15 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:3B23CA:520F6D:6A541939 and timestamp 2026-07-12 22:46:17 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4E:1FB8B2:3CF1BD:53D699:6A54193A and timestamp 2026-07-12 22:46:18 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D51:19A3E7:3FD2A0:56AE51:6A54193C and timestamp 2026-07-12 22:46:20 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3E2841:550C70:6A54193D and timestamp 2026-07-12 22:46:21 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D48:2D59C0:3AD659:51C0CB:6A54193F and timestamp 2026-07-12 22:46:23 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D55:2D59C0:3AD6D8:51C17C:6A541940 and timestamp 2026-07-12 22:46:24 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3E2C28:5511A2:6A541946 and timestamp 2026-07-12 22:46:30 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3E3123:551839:6A541950 and timestamp 2026-07-12 22:46:40 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3E3A4E:552457:6A541963 and timestamp 2026-07-12 22:46:59 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3E4080:552CFF:6A541972 and timestamp 2026-07-12 22:47:14 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3D6781:54550D:6A5419AC and timestamp 2026-07-12 22:48:12 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D42:1AC1C0:3D341F:542411:6A5419C4 and timestamp 2026-07-12 22:48:36 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:33B541:241ABF:2F1F4F:6A5419DF and timestamp 2026-07-12 22:49:03 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:1729E5:22747A:2D848D:6A541A0B and timestamp 2026-07-12 22:49:47 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:479239:64F90B:6A541A34 and timestamp 2026-07-12 22:50:28 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:47956A:64FD8D:6A541A3D and timestamp 2026-07-12 22:50:37 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:47A3F8:651204:6A541A62 and timestamp 2026-07-12 22:51:14 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3EC253:55DBDE:6A541A90 and timestamp 2026-07-12 22:52:00 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:3BC548:52E7A7:6A541A94 and timestamp 2026-07-12 22:52:04 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+Error: Request failed after 20 attempts.
+Retrying in 60 seconds.
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3EE42C:5607E1:6A541AD0 and timestamp 2026-07-12 22:53:04 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:3BDFF2:530C07:6A541AD2 and timestamp 2026-07-12 22:53:06 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4D:1E181F:3F9B82:56B7D5:6A541AD3 and timestamp 2026-07-12 22:53:07 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D50:32A6D4:3C1BEA:5334DF:6A541AD5 and timestamp 2026-07-12 22:53:09 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D54:5BB87:3DD898:54F524:6A541AD6 and timestamp 2026-07-12 22:53:10 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3EE7A8:560C7A:6A541AD8 and timestamp 2026-07-12 22:53:12 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:3BE2D1:531048:6A541ADA and timestamp 2026-07-12 22:53:14 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3EEA6F:56108D:6A541ADF and timestamp 2026-07-12 22:53:19 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3EF07C:56185D:6A541AEA and timestamp 2026-07-12 22:53:30 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3EF7C9:56227F:6A541AFB and timestamp 2026-07-12 22:53:47 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D42:305021:221C74:2D5561:6A541B1B and timestamp 2026-07-12 22:54:19 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:3F1178:564899:6A541B4C and timestamp 2026-07-12 22:55:08 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:48FCD1:669C31:6A541B63 and timestamp 2026-07-12 22:55:31 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:480F50:65AAD0:6A541B81 and timestamp 2026-07-12 22:56:02 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:490AA2:66B0DA:6A541B8F and timestamp 2026-07-12 22:56:15 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3E2FBA:55705B:6A541BBA and timestamp 2026-07-12 22:56:58 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D42:1AC1C0:3E05B9:554B3A:6A541BE3 and timestamp 2026-07-12 22:57:39 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3E443B:558CE5:6A541BEE and timestamp 2026-07-12 22:57:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:483F35:65F2B3:6A541C1A and timestamp 2026-07-12 22:58:34 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4E827D:6C36D2:6A541C1B and timestamp 2026-07-12 22:58:35 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+Error: Request failed after 20 attempts.
+Retrying in 60 seconds.
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3E6F4F:55C8CF:6A541C58 and timestamp 2026-07-12 22:59:36 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:281C9E:3C758A:53DF7A:6A541C59 and timestamp 2026-07-12 22:59:37 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4E:1FB8B2:3E4073:55A393:6A541C5B and timestamp 2026-07-12 22:59:39 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D51:19A3E7:40F7FE:5851FB:6A541C5C and timestamp 2026-07-12 22:59:40 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D56:3E96DC:3F4D4E:56A757:6A541C5E and timestamp 2026-07-12 22:59:42 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D48:2D59C0:3BDE8F:534746:6A541C5F and timestamp 2026-07-12 22:59:43 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4A:30C891:3E71FE:55CCC7:6A541C61 and timestamp 2026-07-12 22:59:45 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4E:1FB8B2:3E43B2:55A811:6A541C63 and timestamp 2026-07-12 22:59:47 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3E75F2:55D288:6A541C6C and timestamp 2026-07-12 22:59:56 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D48:2D59C0:3BE531:5350B2:6A541C71 and timestamp 2026-07-12 23:00:01 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3E8C2B:55F01E:6A541C9A and timestamp 2026-07-12 23:00:42 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D46:27ADFE:3D6E04:5316F8:6A541C9C and timestamp 2026-07-12 23:00:44 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3E95E0:55FDEF:6A541CB4 and timestamp 2026-07-12 23:01:08 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:1729E5:23C8A4:2F4124:6A541CB9 and timestamp 2026-07-12 23:01:13 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:2E6720:222F5D:2DAEE1:6A541CE0 and timestamp 2026-07-12 23:01:53 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:49B02C:6792DC:6A541D0D and timestamp 2026-07-12 23:02:37 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:49BC8F:67A3D0:6A541D2A and timestamp 2026-07-12 23:03:06 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D42:305021:230BB2:2E9CF4:6A541D60 and timestamp 2026-07-12 23:04:00 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:49E6B0:67DE97:6A541D93 and timestamp 2026-07-12 23:04:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:19D3CD:49F197:67EE77:6A541DB3 and timestamp 2026-07-12 23:05:23 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+Error: Request failed after 20 attempts.
+Retrying in 60 seconds.
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:48E3F7:66E18F:6A541DEF and timestamp 2026-07-12 23:06:23 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4F3692:6D3506:6A541DF1 and timestamp 2026-07-12 23:06:25 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4A:2036CC:4C7012:6A769D:6A541DF2 and timestamp 2026-07-12 23:06:26 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D51:6C74F:45EF0C:63EE55:6A541DF4 and timestamp 2026-07-12 23:06:28 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:2D2365:4B5C83:695AD0:6A541DF5 and timestamp 2026-07-12 23:06:29 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D40:112D00:4E3F5C:6C470E:6A541DF7 and timestamp 2026-07-12 23:06:31 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D49:2B6639:4F3A26:6D3A2E:6A541DFB and timestamp 2026-07-12 23:06:35 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4D:3CBC39:17F523:22813F:6A541DFC and timestamp 2026-07-12 23:06:36 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D47:15DE8E:4CC2CF:6AC997:6A541DFE and timestamp 2026-07-12 23:06:38 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D4A:2036CC:4C767F:6A7F4C:6A541E01 and timestamp 2026-07-12 23:06:41 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D41:18A6C9:48F0E0:66F282:6A541E08 and timestamp 2026-07-12 23:06:48 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D42:305021:235D85:2F10E3:6A541E41 and timestamp 2026-07-12 23:07:45 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.rds)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D40:273404:269245:324A51:6A541E51 and timestamp 2026-07-12 23:08:01 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:40764D:582E1B:6A541E7B and timestamp 2026-07-12 23:08:43 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:407FB5:583AA8:6A541E8F and timestamp 2026-07-12 23:09:03 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.parquet)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D42:305021:237DA3:2F3FEF:6A541EA3 and timestamp 2026-07-12 23:09:23 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.txt)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D43:30C891:3F67B4:5722A0:6A541EC2 and timestamp 2026-07-12 23:09:54 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=timestamp.json)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repoHTTP 403: API rate limit exceeded for user ID 25425933. If you reach out to GitHub Support for help, please include the request ID 5D44:1CAE5F:40A5A6:587001:6A541EF0 and timestamp 2026-07-12 23:10:40 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (https://uploads.github.com/repos/sportsdataverse/sportsdataverse-data/releases/306363914/assets?label=&name=pwhl_games_in_data_repo.csv)
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 23:11:10.623432
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-2048"
+✔ 320 total schedule rows, 320 with PBP
+ℹ Building master schedule + pwhl_games_in_data_repoℹ === PWHL Data Creation complete ===
+ℹ Building master schedule + pwhl_games_in_data_repo
+ℹ Building master schedule + pwhl_games_in_data_repo── All done! ───────────────────────────────────────────────────────────────────
+ℹ Building master schedule + pwhl_games_in_data_repoOn branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+No changes to commit
+Everything up-to-date
