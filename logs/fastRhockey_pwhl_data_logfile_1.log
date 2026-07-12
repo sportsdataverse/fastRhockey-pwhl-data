@@ -1,0 +1,37 @@
+From https://github.com/sportsdataverse/fastRhockey-pwhl-data
+ * [new branch]      feat/pwhl-shifts-t5-r4 -> origin/feat/pwhl-shifts-t5-r4
+ℹ === PWHL Data Creation started ===
+ℹ Processing seasons: 1
+
+── Processing 1 PWHL season ────────────────────────────────────────────────────
+ℹ Downloading 1 schedule from pwhl-raw
+✖ Failed to read RDS from https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_1.rds: cannot open the connection to 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_1.rds'
+ℹ Downloading 1 schedule from pwhl-raw✖ Could not fetch schedule for 1. Skipping.
+ℹ Downloading 1 schedule from pwhl-raw✔ Downloaded 1 schedule [115ms]
+
+Warning message:
+In readRDS(con) :
+  cannot open URL 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_1.rds': HTTP status was '404 Not Found'
+ℹ Building master schedule + pwhl_games_in_data_repo
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 18:03:28.16142
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-33"
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 18:03:30.403763
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-44"
+✔ 320 total schedule rows, 320 with PBP
+ℹ Building master schedule + pwhl_games_in_data_repoℹ === PWHL Data Creation complete ===
+ℹ Building master schedule + pwhl_games_in_data_repo
+ℹ Building master schedule + pwhl_games_in_data_repo── All done! ───────────────────────────────────────────────────────────────────
+ℹ Building master schedule + pwhl_games_in_data_repo[main 21ae335] PWHL Data Updated (Start: 1 End: 1)
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+To https://github.com/sportsdataverse/fastRhockey-pwhl-data
+   42f3e9e..21ae335  main -> main
