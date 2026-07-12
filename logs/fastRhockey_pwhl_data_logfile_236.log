@@ -1,0 +1,37 @@
+ℹ === PWHL Data Creation started ===
+ℹ Processing seasons: 236
+
+── Processing 236 PWHL season ──────────────────────────────────────────────────
+ℹ Downloading 236 schedule from pwhl-raw
+✖ Failed to read RDS from https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_236.rds: cannot open the connection to 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_236.rds'
+ℹ Downloading 236 schedule from pwhl-raw✖ Could not fetch schedule for 236. Skipping.
+ℹ Downloading 236 schedule from pwhl-raw✔ Downloaded 236 schedule [132ms]
+
+Warning message:
+In readRDS(con) :
+  cannot open URL 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_236.rds': HTTP status was '404 Not Found'
+ℹ Building master schedule + pwhl_games_in_data_repo
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 19:23:59.220124
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-33"
+→ Uploading 3 files!
+ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
+<https://github.com/sportsdataverse/sportsdataverse-data/releases> @
+pwhl_schedules
+ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 19:24:01.032412
+ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-44"
+✔ 320 total schedule rows, 320 with PBP
+ℹ Building master schedule + pwhl_games_in_data_repoℹ === PWHL Data Creation complete ===
+ℹ Building master schedule + pwhl_games_in_data_repo
+ℹ Building master schedule + pwhl_games_in_data_repo── All done! ───────────────────────────────────────────────────────────────────
+ℹ Building master schedule + pwhl_games_in_data_repoOn branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+No changes to commit
+Everything up-to-date
