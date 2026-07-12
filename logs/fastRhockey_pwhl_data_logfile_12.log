@@ -5,7 +5,7 @@
 ℹ Downloading 12 schedule from pwhl-raw
 ✖ Failed to read RDS from https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_12.rds: cannot open the connection to 'https://raw.githubusercontent.com/sportsdataverse/fastRhockey-pwhl-raw/main/pwhl/schedules/rds/pwhl_schedule_12.rds'
 ℹ Downloading 12 schedule from pwhl-raw✖ Could not fetch schedule for 12. Skipping.
-ℹ Downloading 12 schedule from pwhl-raw✔ Downloaded 12 schedule [176ms]
+ℹ Downloading 12 schedule from pwhl-raw✔ Downloaded 12 schedule [219ms]
 
 Warning message:
 In readRDS(con) :
@@ -16,14 +16,14 @@ In readRDS(con) :
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_schedules
 ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
-ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-06-03 03:02:01.855946
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 18:05:17.021049
 ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-33"
 → Uploading 3 files!
 ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_schedules
 ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
-ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-06-03 03:02:04.38446
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-12 18:05:18.912137
 ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-44"
 ✔ 320 total schedule rows, 320 with PBP
 ℹ Building master schedule + pwhl_games_in_data_repoℹ === PWHL Data Creation complete ===
