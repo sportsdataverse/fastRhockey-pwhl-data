@@ -16,6 +16,7 @@ seasons inconsistently), scores each season with it, and writes frames to disk.
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 import polars as pl
@@ -78,14 +79,13 @@ def build_xg(
 
     too_old = [s for s in seasons if s < MIN_SEASON]
     if too_old:
-        raise ValueError(
-            f"pwhl_xg_pbp: seasons {too_old} predate the {MIN_SEASON} floor "
-            "(PWHL's inaugural season)"
-        )
+        raise ValueError(f"pwhl_xg_pbp: seasons {too_old} predate the {MIN_SEASON} floor (PWHL's inaugural season)")
 
     pbp_dir = Path(pbp_dir) if pbp_dir else DEFAULT_PBP_DIR
     frames = {s: _read_pbp(s, pbp_dir) for s in seasons}
     model = fit(pl.concat(list(frames.values()), how="diagonal_relaxed"))
+
+    from sportsdataverse._rds import write_rds
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -93,14 +93,24 @@ def build_xg(
     for season in seasons:
         df = score(frames[season], model=model)
         if df.height == 0:
-            raise ValueError(
-                f"pwhl_xg_pbp: season {season} produced 0 shot rows -- "
-                "refusing to publish an empty tag"
-            )
+            raise ValueError(f"pwhl_xg_pbp: season {season} produced 0 shot rows -- refusing to publish an empty tag")
         path = out_dir / f"pwhl_xg_pbp_{season}.parquet"
         df.write_parquet(path)
+        # The pwhl_* release tags ship csv + parquet + rds per season (the
+        # pwhl_pbp precedent); the rds carries fastRhockey's S3 class chain +
+        # attribute pair so R consumers get the family print method.
+        df.write_csv(out_dir / f"pwhl_xg_pbp_{season}.csv")
+        write_rds(
+            df,
+            out_dir / f"pwhl_xg_pbp_{season}.rds",
+            cls=["fastRhockey_data", "tbl_df", "tbl", "data.table", "data.frame"],
+            attributes={
+                "fastRhockey_timestamp": datetime.now(timezone.utc),
+                "fastRhockey_type": "PWHL xG-enriched shots",
+            },
+        )
         results.append({"season": season, "rows": df.height, "path": str(path)})
-        print(f"xg: season={season} rows={df.height} -> {path}")
+        print(f"xg: season={season} rows={df.height} -> {path} (+csv, +rds)")
     return results
 
 
@@ -116,8 +126,7 @@ def write_xg_card(results: list[dict], out_dir) -> Path:
         "tag": "pwhl_xg_pbp",
         "grain": "one row per on-net shot per season",
         "source": (
-            "sdv-py sportsdataverse.pwhl.pwhl_xg_proxy.pwhl_shot_xg() over this "
-            "repo's committed play-by-play parquet"
+            "sdv-py sportsdataverse.pwhl.pwhl_xg_proxy.pwhl_shot_xg() over this repo's committed play-by-play parquet"
         ),
         "seasons": [r["season"] for r in results],
         "rows_by_season": {str(r["season"]): r["rows"] for r in results},

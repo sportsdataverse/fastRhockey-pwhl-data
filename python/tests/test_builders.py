@@ -50,9 +50,7 @@ def test_build_xg_fits_once_on_the_pool_and_writes_per_season(tmp_path):
         fits.append(pbp.height)
         return _fake_fit(pbp)
 
-    results = build_xg(
-        [2024, 2025], tmp_path / "out", pbp_dir=pbp_dir, fit=fit, score=_fake_score
-    )
+    results = build_xg([2024, 2025], tmp_path / "out", pbp_dir=pbp_dir, fit=fit, score=_fake_score)
 
     # ONE fit over the pooled seasons (3 rows x 2 seasons), not one per season
     assert fits == [6]
@@ -62,6 +60,9 @@ def test_build_xg_fits_once_on_the_pool_and_writes_per_season(tmp_path):
         path = tmp_path / "out" / f"pwhl_xg_pbp_{s}.parquet"
         assert path.exists()
         assert pl.read_parquet(path)["xg"].to_list() == [0.1, 0.1]
+        # family convention (pwhl_pbp precedent): csv + parquet + rds per season
+        assert (tmp_path / "out" / f"pwhl_xg_pbp_{s}.csv").exists()
+        assert (tmp_path / "out" / f"pwhl_xg_pbp_{s}.rds").exists()
 
 
 def test_build_xg_refuses_an_empty_season(tmp_path):
@@ -91,18 +92,14 @@ def test_build_xg_rejects_a_missing_pbp_parquet(tmp_path):
     pbp_dir.mkdir()
 
     with pytest.raises(ValueError, match="no committed pbp"):
-        build_xg(
-            [2025], tmp_path / "out", pbp_dir=pbp_dir, fit=_fake_fit, score=_fake_score
-        )
+        build_xg([2025], tmp_path / "out", pbp_dir=pbp_dir, fit=_fake_fit, score=_fake_score)
 
 
 def test_card_carries_seasons_and_gate_anchor(tmp_path):
     pbp_dir = tmp_path / "pbp"
     pbp_dir.mkdir()
     _write_pbp(pbp_dir, 2025)
-    results = build_xg(
-        [2025], tmp_path / "out", pbp_dir=pbp_dir, fit=_fake_fit, score=_fake_score
-    )
+    results = build_xg([2025], tmp_path / "out", pbp_dir=pbp_dir, fit=_fake_fit, score=_fake_score)
 
     path = write_xg_card(results, tmp_path / "out")
     card = json.loads(path.read_text(encoding="utf-8"))
@@ -149,9 +146,7 @@ def test_cli_build_only_writes_files_and_skips_upload(tmp_path, monkeypatch):
     monkeypatch.setattr(
         cli,
         "build_xg",
-        lambda seasons, out, **kw: build_xg(
-            seasons, out, pbp_dir=pbp_dir, fit=_fake_fit, score=_fake_score
-        ),
+        lambda seasons, out, **kw: build_xg(seasons, out, pbp_dir=pbp_dir, fit=_fake_fit, score=_fake_score),
     )
     monkeypatch.setattr(
         cli,
@@ -159,9 +154,7 @@ def test_cli_build_only_writes_files_and_skips_upload(tmp_path, monkeypatch):
         lambda *a, **k: pytest.fail("--build-only must not upload"),
     )
 
-    rc = main(
-        ["xg", "--seasons", "2025", "--out", str(tmp_path / "out"), "--build-only"]
-    )
+    rc = main(["xg", "--seasons", "2025", "--out", str(tmp_path / "out"), "--build-only"])
 
     assert rc == 0
     assert (tmp_path / "out" / "pwhl_xg_pbp_2025.parquet").exists()
