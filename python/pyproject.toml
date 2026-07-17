@@ -1,0 +1,22 @@
+[project]
+name = "pwhl-model-publish"
+version = "0.1.0"
+description = "PWHL model-dataset publisher (xG-enriched shots) for sportsdataverse-data releases"
+requires-python = ">=3.10"
+dependencies = [
+    "sportsdataverse @ git+https://github.com/sportsdataverse/sportsdataverse-py@main",
+    "polars>=1.0",
+    "pyarrow>=15.0",
+    "scikit-learn>=1.0",
+    "numpy>=1.24",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["pwhl_model_publish*"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
