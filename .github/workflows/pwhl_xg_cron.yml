@@ -1,0 +1,110 @@
+name: PWHL xG
+
+# Refreshes the `pwhl_xg_pbp` dataset release on sportsdataverse-data: one row
+# per on-net shot per season, built by sdv-py's `pwhl_shot_xg()` over THIS
+# repo's committed play-by-play parquet (no network input -- the checkout IS
+# the data source).
+#
+# The xG model is re-fit on the pooled committed seasons each run and ALL
+# seasons are re-scored + re-uploaded (--clobber): PWHL samples are small, so
+# every season riding the same, freshest model beats frozen per-season fits.
+#
+# Credential scoping: the cross-repo publish PAT (SDV_GH_TOKEN) is NOT exported
+# job-wide; it is set only on the build+publish step.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seasons:
+        description: 'Season or inclusive range (e.g. 2026 or 2024:2026). Default: every committed pbp season.'
+        required: false
+        type: string
+      dry_run:
+        description: 'Build only; plan the uploads without publishing'
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    # Daily in the PWHL season window (late Nov - May playoffs), after the
+    # daily R processor has committed the day's pbp.
+    - cron: '0 14 * 1-5 *'    # January-May
+    - cron: '0 14 * 11,12 *'  # November-December
+
+permissions:
+  contents: read
+
+env:
+  PUBLISH_REPO: sportsdataverse/sportsdataverse-data
+
+jobs:
+  xg:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - name: Checkout pwhl-data
+        uses: actions/checkout@v5
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: python/uv.lock
+
+      - name: Sync deps
+        run: uv sync --frozen
+
+      # `pwhl_shot_xg` landed after the last PyPI release -- install from git
+      # until a release carries it.
+      # TODO: re-pin to a PyPI release once one ships `pwhl_shot_xg`.
+      - name: Install sportsdataverse from git (main)
+        run: |
+          uv pip install \
+            "sportsdataverse @ git+https://github.com/sportsdataverse/sportsdataverse-py.git@main"
+
+      # Canary. Every `uv run` below MUST pass --no-sync: a bare `uv run`
+      # re-syncs from uv.lock and silently REVERTS the git install above. This
+      # fails loudly in seconds instead of the publish dying minutes in.
+      - name: Verify the xG surface imports
+        run: |
+          uv run --no-sync python -c "
+          from sportsdataverse.pwhl.pwhl_xg_proxy import pwhl_shot_xg
+          import importlib.metadata as md
+          print('pwhl_shot_xg OK (sportsdataverse', md.version('sportsdataverse'), 'from git@main)')
+          "
+
+      # The committed pbp tree is the source of truth for which seasons exist,
+      # so derive the build range from the files in this very checkout -- the
+      # cron can never ask for a season whose pbp is not committed (which the
+      # builder would reject).
+      - name: Resolve seasons
+        env:
+          # Via env, not `${{ }}` inline in the script: a dispatch input
+          # interpolated straight into `run:` is a shell-injection sink.
+          SEASONS_INPUT: ${{ inputs.seasons }}
+        run: |
+          if [ -n "$SEASONS_INPUT" ]; then
+            SEASONS="$SEASONS_INPUT"
+          else
+            YEARS=$(ls ../pwhl/pbp/parquet/play_by_play_*.parquet \
+              | sed -E 's/.*play_by_play_([0-9]{4})\.parquet/\1/' | sort -n)
+            if [ -z "$YEARS" ]; then
+              echo "::error::no committed play_by_play_*.parquet found"
+              exit 1
+            fi
+            SEASONS="$(echo "$YEARS" | head -1):$(echo "$YEARS" | tail -1)"
+          fi
+          echo "SEASONS=$SEASONS" >> $GITHUB_ENV
+          echo "building pwhl_xg_pbp for seasons: $SEASONS"
+
+      - name: Build + publish pwhl_xg_pbp ${{ env.SEASONS }}
+        env:
+          GH_TOKEN: ${{ secrets.SDV_GH_TOKEN }}
+        run: |
+          uv run --no-sync python -m pwhl_model_publish xg \
+            --seasons "$SEASONS" \
+            --out out/pwhl_xg_pbp \
+            --tag pwhl_xg_pbp \
+            --repo "$PUBLISH_REPO" \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
