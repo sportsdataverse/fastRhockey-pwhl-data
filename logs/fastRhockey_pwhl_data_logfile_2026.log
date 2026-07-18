@@ -6,7 +6,7 @@ From https://github.com/sportsdataverse/fastRhockey-pwhl-data
 ── Processing 2026 PWHL season ─────────────────────────────────────────────────
 ℹ Downloading 2026 schedule from pwhl-raw
 ℹ 133 games with final JSON in raw repo
-ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [346ms]
+ℹ Downloading 2026 schedule from pwhl-raw✔ Downloaded 2026 schedule [219ms]
 
 ℹ Reading 133 game JSONs and extracting datasets
 ℹ pbp: 16303 rows
@@ -14,7 +14,7 @@ From https://github.com/sportsdataverse/fastRhockey-pwhl-data
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @ pwhl_pbp
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-07-18 12:37:54.244066
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_pbp on 2026-07-18 12:38:34.34888
 ℹ Reading 133 game JSONs and extracting datasetsℹ shifts: 0 rows -> skipped
 ℹ Reading 133 game JSONs and extracting datasetsℹ skater_box: 5041 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
@@ -22,85 +22,85 @@ From https://github.com/sportsdataverse/fastRhockey-pwhl-data
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_skater_boxscores
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_skater_boxscores on 2026-07-18 12:37:56.533483
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_skater_boxscores on 2026-07-18 12:38:37.294102
 ℹ Reading 133 game JSONs and extracting datasetsℹ goalie_box: 532 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_goalie_boxscores
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_goalie_boxscores on 2026-07-18 12:37:58.632465
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_goalie_boxscores on 2026-07-18 12:38:39.56014
 ℹ Reading 133 game JSONs and extracting datasetsℹ team_box: 266 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_team_boxscores
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_team_boxscores on 2026-07-18 12:38:01.057674
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_team_boxscores on 2026-07-18 12:38:41.880736
 ℹ Reading 133 game JSONs and extracting datasetsℹ game_info: 133 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_game_info
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_game_info on 2026-07-18 12:38:03.160455
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_game_info on 2026-07-18 12:38:44.322948
 ℹ Reading 133 game JSONs and extracting datasetsℹ game_rosters: 5573 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_game_rosters
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_game_rosters on 2026-07-18 12:38:05.220731
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_game_rosters on 2026-07-18 12:38:46.728396
 ℹ Reading 133 game JSONs and extracting datasetsℹ scoring_summary: 602 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_scoring_summary
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_scoring_summary on 2026-07-18 12:38:07.164782
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_scoring_summary on 2026-07-18 12:38:49.041586
 ℹ Reading 133 game JSONs and extracting datasetsℹ penalty_summary: 850 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_penalty_summary
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_penalty_summary on 2026-07-18 12:38:09.260206
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_penalty_summary on 2026-07-18 12:38:51.468975
 ℹ Reading 133 game JSONs and extracting datasetsℹ three_stars: 399 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_three_stars
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_three_stars on 2026-07-18 12:38:11.272439
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_three_stars on 2026-07-18 12:38:53.81084
 ℹ Reading 133 game JSONs and extracting datasetsℹ officials: 532 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_officials
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_officials on 2026-07-18 12:38:13.326137
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_officials on 2026-07-18 12:38:56.134237
 ℹ Reading 133 game JSONs and extracting datasetsℹ shots_by_period: 437 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_shots_by_period
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_shots_by_period on 2026-07-18 12:38:15.445392
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_shots_by_period on 2026-07-18 12:38:58.591774
 ℹ Reading 133 game JSONs and extracting datasetsℹ shootout: 1 rows
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_shootout
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_shootout on 2026-07-18 12:38:17.312937
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_shootout on 2026-07-18 12:39:00.988773
 ℹ Reading 133 game JSONs and extracting datasets→ Uploading 3 files!
 ℹ Reading 133 game JSONs and extracting datasetsℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_player_boxscores
 ℹ Reading 133 game JSONs and extracting datasets✔ Upload successfully completed.
-ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_player_boxscores on 2026-07-18 12:38:19.452771
+ℹ Reading 133 game JSONs and extracting datasets→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_player_boxscores on 2026-07-18 12:39:03.670704
 ℹ Reading 133 game JSONs and extracting datasetsℹ player_box: 5573 rows
-ℹ Reading 133 game JSONs and extracting datasets✔ Extracted per-game datasets [39s]
+ℹ Reading 133 game JSONs and extracting datasets✔ Extracted per-game datasets [55.3s]
 
 ℹ Compiling 2026 season rosters
 → Uploading 3 files!
@@ -108,9 +108,9 @@ pwhl_player_boxscores
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_rosters
 ℹ Compiling 2026 season rosters✔ Upload successfully completed.
-ℹ Compiling 2026 season rosters→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_rosters on 2026-07-18 12:38:21.476017
+ℹ Compiling 2026 season rosters→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_rosters on 2026-07-18 12:39:06.239072
 ℹ Compiling 2026 season rostersℹ rosters: 691 unique entries
-ℹ Compiling 2026 season rosters✔ Compiled 2026 season rosters [2s]
+ℹ Compiling 2026 season rosters✔ Compiled 2026 season rosters [2.6s]
 
 ℹ Updating 2026 schedule flags
 → Uploading 3 files!
@@ -118,9 +118,9 @@ pwhl_rosters
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_schedules
 ℹ Updating 2026 schedule flags✔ Upload successfully completed.
-ℹ Updating 2026 schedule flags→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-18 12:38:23.415048
+ℹ Updating 2026 schedule flags→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-18 12:39:08.782305
 ℹ Updating 2026 schedule flags✔ Done with 2026
-ℹ Updating 2026 schedule flags✔ Updated 2026 schedule flags [2.1s]
+ℹ Updating 2026 schedule flags✔ Updated 2026 schedule flags [2.7s]
 
 Warning message:
 In checkNumberOfLocalWorkers(workers) :
@@ -131,20 +131,45 @@ In checkNumberOfLocalWorkers(workers) :
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_schedules
 ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
-ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-18 12:38:25.44058
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-18 12:39:11.067971
 ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-260"
 → Uploading 3 files!
 ℹ Building master schedule + pwhl_games_in_data_repoℹ Start upload of 7 files to
 <https://github.com/sportsdataverse/sportsdataverse-data/releases> @
 pwhl_schedules
 ℹ Building master schedule + pwhl_games_in_data_repo✔ Upload successfully completed.
-ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-18 12:38:27.13579
+ℹ Building master schedule + pwhl_games_in_data_repo→ Uploaded 7 to sportsdataverse/sportsdataverse-data @ pwhl_schedules on 2026-07-18 12:39:13.240426
 ℹ Building master schedule + pwhl_games_in_data_repo[1] "cli-213-271"
 ✔ 320 total schedule rows, 320 with PBP
 ℹ Building master schedule + pwhl_games_in_data_repoℹ === PWHL Data Creation complete ===
 ℹ Building master schedule + pwhl_games_in_data_repo
 ℹ Building master schedule + pwhl_games_in_data_repo── All done! ───────────────────────────────────────────────────────────────────
-ℹ Building master schedule + pwhl_games_in_data_repo[main ba736e4] PWHL Data Updated (Start: 2026 End: 2026)
- 18 files changed, 0 insertions(+), 0 deletions(-)
-To https://github.com/sportsdataverse/fastRhockey-pwhl-data
-   45d0d3b..ba736e4  main -> main
+ℹ Building master schedule + pwhl_games_in_data_repoFrom https://github.com/sportsdataverse/fastRhockey-pwhl-data
+   45d0d3b..84d1d95  main       -> origin/main
+error: Your local changes to the following files would be overwritten by merge:
+	pwhl/game_info/parquet/game_info_2026.parquet
+	pwhl/game_rosters/parquet/game_rosters_2026.parquet
+	pwhl/goalie_box/parquet/goalie_box_2026.parquet
+	pwhl/officials/parquet/officials_2026.parquet
+	pwhl/pbp/parquet/play_by_play_2026.parquet
+	pwhl/pbp/rds/play_by_play_2026.rds
+	pwhl/penalty_summary/parquet/penalty_summary_2026.parquet
+	pwhl/player_box/parquet/player_box_2026.parquet
+	pwhl/pwhl_games_in_data_repo.parquet
+	pwhl/pwhl_schedule_master.parquet
+	pwhl/rosters/parquet/rosters_2026.parquet
+	pwhl/schedules/parquet/pwhl_schedule_2026.parquet
+	pwhl/scoring_summary/parquet/scoring_summary_2026.parquet
+	pwhl/shootout/parquet/shootout_summary_2026.parquet
+	pwhl/shots_by_period/parquet/shots_by_period_2026.parquet
+	pwhl/skater_box/parquet/skater_box_2026.parquet
+	pwhl/team_box/parquet/team_box_2026.parquet
+	pwhl/three_stars/parquet/three_stars_2026.parquet
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+No changes to commit
+Everything up-to-date
