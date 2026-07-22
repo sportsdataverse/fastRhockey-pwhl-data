@@ -1,0 +1,121 @@
+name: Update PWHL Data (Python)
+
+# Python port of the PWHL compiler (python/pwhl_data_build). Reads the per-game
+# final.json from fastRhockey-pwhl-raw, compiles the season-level datasets, and publishes
+# parquet + rds + csv to the sportsdataverse-data pwhl_* releases — the same outputs as the
+# R daily_pwhl.yml, which is now de-scheduled.
+#
+# Validated against R's committed 2024 parquet: 11 of 12 comparable datasets match exactly
+# on rows and columns. pbp/shifts differ only because R's committed 2024 artifacts predate
+# the raw enrichment fields; python's columns are a strict superset over the same 85 games.
+#
+# Credential scoping: the cross-repo publish PAT (SDV_GH_TOKEN) is set only on the publish
+# step; both checkouts set persist-credentials:false.
+on:
+  schedule:
+    # Mirrors the retired daily_pwhl.yml cadence.
+    - cron: '0 9 * 11-12 *'  # regular season (Nov-Dec)
+    - cron: '0 9 * 1-3 *'    # regular season (Jan-Mar)
+    - cron: '0 9 * 4-5 *'    # playoffs (Apr-May)
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: 'Start season end-year (e.g. 2026 for 2025-26)'
+        required: false
+        type: string
+      end_year:
+        description: 'End season end-year (default: start)'
+        required: false
+        type: string
+      publish:
+        description: 'Publish datasets to sportsdataverse-data releases'
+        required: false
+        type: boolean
+        default: true
+  repository_dispatch:
+    types: [daily_pwhl_data]
+
+permissions:
+  contents: write
+
+jobs:
+  pwhl_data_python:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - name: Checkout pwhl-data
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false  # the commit-back step authenticates the push explicitly
+
+      # The compiler needs both the per-game finals and the season schedule parquet
+      # (season_game_ids reads the schedule to enumerate a season's games).
+      - name: Sparse-checkout pwhl-raw
+        uses: actions/checkout@v5
+        with:
+          repository: sportsdataverse/fastRhockey-pwhl-raw
+          path: _raw
+          sparse-checkout: |
+            pwhl/json/final
+            pwhl/schedules/parquet
+          sparse-checkout-cone-mode: true
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: python/uv.lock
+
+      - name: Sync deps
+        run: uv sync
+
+      - name: Resolve season range
+        id: years
+        env:  # bind user inputs to env vars — never expand them into the shell source directly
+          IN_START: ${{ github.event.inputs.start_year }}
+          IN_END: ${{ github.event.inputs.end_year }}
+        run: |
+          START="$IN_START"
+          if [ -z "$START" ]; then
+            Y=$(date +%Y); M=$(date +%m)
+            START=$([ "$M" -ge 8 ] && echo $((Y + 1)) || echo "$Y")   # PWHL season end-year
+          fi
+          END="${IN_END:-$START}"
+          # validate integers before any reuse (reject crafted values)
+          case "$START" in ''|*[!0-9]*) echo "invalid start_year: $START" >&2; exit 1;; esac
+          case "$END" in ''|*[!0-9]*) echo "invalid end_year: $END" >&2; exit 1;; esac
+          echo "start=$START" >> "$GITHUB_OUTPUT"; echo "end=$END" >> "$GITHUB_OUTPUT"
+
+      - name: Compile season datasets
+        run: |
+          for y in $(seq ${{ steps.years.outputs.start }} ${{ steps.years.outputs.end }}); do
+            uv run python -m pwhl_data_build.season -s "$y" \
+              --raw-root "$GITHUB_WORKSPACE/_raw" --out "$GITHUB_WORKSPACE/pwhl"
+          done
+
+      - name: Publish to sportsdataverse-data releases
+        if: ${{ github.event.inputs.publish != 'false' }}
+        env:
+          GH_TOKEN: ${{ secrets.SDV_GH_TOKEN }}
+        run: |
+          for y in $(seq ${{ steps.years.outputs.start }} ${{ steps.years.outputs.end }}); do
+            uv run python -c "from pwhl_data_build.publish import publish_season; print(len(publish_season('$GITHUB_WORKSPACE/pwhl', $y)), 'assets uploaded')"
+          done
+
+      - name: Commit compiled parquets
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          # rds/csv are gitignored — they ship to the releases only.
+          git add pwhl
+          git commit -m "PWHL Data Updated (Start: ${{ steps.years.outputs.start }} End: ${{ steps.years.outputs.end }})" || echo "no changes"
+          # persist-credentials:false on checkout — authenticate the push explicitly so the
+          # write token isn't left in the runner's git config for later steps to reuse.
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            "HEAD:${GITHUB_REF_NAME}" || echo "nothing to push"

@@ -1,14 +1,18 @@
 name: Update PWHL Data
 
+# RETIRED: superseded by daily_pwhl_python.yml (the Python compiler). The schedule is removed
+# so both don't compile the same seasons; workflow_dispatch stays available as a rollback
+# during the transition. Delete this workflow once the Python pipeline is proven.
 on:
-  schedule:
-    # PWHL regular season: November through March
-    - cron: '0 9 * 11-12 *'
-    - cron: '0 9 * 1-3 *'
-    # Playoffs: March through May
-    - cron: '0 9 * 4-5 *'
-  repository_dispatch:
-    types: [daily_pwhl_data]
+  # schedule:  # de-scheduled at cutover — see daily_pwhl_python.yml
+  #   # PWHL regular season: November through March
+  #   - cron: '0 9 * 11-12 *'
+  #   - cron: '0 9 * 1-3 *'
+  #   # Playoffs: March through May
+  #   - cron: '0 9 * 4-5 *'
+  # repository_dispatch removed at cutover: daily_pwhl_python.yml now receives
+  # daily_pwhl_data. Leaving it here too would run both compilers on the same raw push,
+  # racing each other's git push to main.
   workflow_dispatch:
     inputs:
       start_year:
