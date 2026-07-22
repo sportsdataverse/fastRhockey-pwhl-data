@@ -32,11 +32,24 @@ REPOS_ROOT="${SDV_REPOS:-/mnt/sdv_repos}"
 RAW_ROOT="${PWHL_RAW_ROOT:-${REPOS_ROOT}/fastRhockey-pwhl-raw}"
 OUT_DIR="${REPO_DIR}/pwhl"
 
+# Call the project venv's interpreter by absolute path rather than going through
+# `uv run`. sdv-orch invokes this from a systemd unit, whose PATH is the systemd
+# default (/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin) and does
+# NOT include /root/.local/bin where uv lives -- so `uv` exits 127 there while
+# working fine in an interactive shell. The venv interpreter needs no PATH lookup
+# and no cwd games (pwhl_data_build is installed into it).
+PYBIN="${PWHL_PYBIN:-${REPO_DIR}/python/.venv/bin/python}"
+
 # Fail before touching git if the upstream checkout isn't where we expect. A
 # missing raw root would otherwise compile zero games and "succeed", quietly
 # publishing nothing.
 if [ ! -d "${RAW_ROOT}/pwhl/json/final" ]; then
     echo "::error ::raw finals not found at ${RAW_ROOT}/pwhl/json/final"
+    exit 1
+fi
+
+if [ ! -x "${PYBIN}" ]; then
+    echo "::error ::python venv not found at ${PYBIN} -- run 'uv sync' in ${REPO_DIR}/python"
     exit 1
 fi
 
@@ -56,24 +69,16 @@ for i in $(seq "${START_YEAR}" "${END_YEAR}"); do
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
 
-        # uv resolves the project in python/; the package only imports with that
-        # as cwd, so run it in a subshell and pass absolute paths.
-        (
-            cd python && \
-            uv run python -m pwhl_data_build.season \
-                -s "$i" --raw-root "${RAW_ROOT}" --out "${OUT_DIR}"
-        )
+        "${PYBIN}" -m pwhl_data_build.season \
+            -s "$i" --raw-root "${RAW_ROOT}" --out "${OUT_DIR}"
         echo "COMPILE_RC=$?" > "/tmp/_pwhl_compile_rc_${i}"
 
         # Publish only what compiled. Uploading is idempotent (--clobber), so a
         # partial season still ships the datasets that built.
-        (
-            cd python && \
-            uv run python -c "
+        "${PYBIN}" -c "
 from pwhl_data_build.publish import publish_season
 print(len(publish_season('${OUT_DIR}', ${i})), 'assets uploaded')
 "
-        )
 
         git pull >> /dev/null
         git add pwhl >> /dev/null
