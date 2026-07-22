@@ -1,7 +1,26 @@
-/mnt/sdv_repos/fastRhockey-pwhl-data/scripts/daily_pwhl_python_processor.sh: line 63: uv: command not found
-/mnt/sdv_repos/fastRhockey-pwhl-data/scripts/daily_pwhl_python_processor.sh: line 72: uv: command not found
+2026-07-22 17:29:41,153 [INFO] season 2026: 133 games in schedule
+2026-07-22 17:29:59,247 [INFO] game_info: 133 rows
+2026-07-22 17:29:59,247 [INFO] game_rosters: 5573 rows
+2026-07-22 17:29:59,247 [INFO] goalie_box: 532 rows
+2026-07-22 17:29:59,248 [INFO] officials: 532 rows
+2026-07-22 17:29:59,248 [INFO] pbp: 23838 rows
+2026-07-22 17:29:59,248 [INFO] penalty_summary: 850 rows
+2026-07-22 17:29:59,248 [INFO] player_box: 5573 rows
+2026-07-22 17:29:59,248 [INFO] scoring_summary: 602 rows
+2026-07-22 17:29:59,248 [INFO] shifts: 104487 rows
+2026-07-22 17:29:59,248 [INFO] shootout: 1 rows
+2026-07-22 17:29:59,248 [INFO] shots_by_period: 437 rows
+2026-07-22 17:29:59,248 [INFO] skater_box: 5041 rows
+2026-07-22 17:29:59,248 [INFO] team_box: 266 rows
+2026-07-22 17:29:59,248 [INFO] three_stars: 399 rows
+42 assets uploaded
 On branch main
 Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scripts/daily_pwhl_python_processor.sh
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -9,6 +28,6 @@ Untracked files:
 	daily_pwhl_data.out
 	python/.omc/
 
-nothing added to commit but untracked files present (use "git add" to track)
+no changes added to commit (use "git add" and/or "git commit -a")
 No changes to commit
 Everything up-to-date
