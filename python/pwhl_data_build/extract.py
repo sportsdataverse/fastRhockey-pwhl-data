@@ -50,7 +50,7 @@ def extract_all(game_json: dict | None) -> dict[str, list[dict]]:
     if not isinstance(game_json, dict):
         return out
 
-    for key, field, _prefix, _tag in DATASETS:
+    for key, field, _prefix, _tag, _desc in DATASETS:
         out[key] = _rows(game_json.get(field))
 
     out["skater_box"] = _coerce_starting(out["skater_box"])

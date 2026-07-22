@@ -84,6 +84,38 @@ def test_write_dataset_emits_all_three_formats(tmp_path: Path) -> None:
     assert paths["rds"].stat().st_size > 0
 
 
+def test_rds_carries_the_make_fastRhockey_data_stamp(tmp_path: Path) -> None:
+    """R's rbindlist_with_attrs reads these attrs off the file — NULL prints a blank header.
+
+    Asserted against the raw RDS stream (names are stored as ASCII) rather than via
+    readRDS, so the check needs no R toolchain in CI.
+    """
+    import gzip
+
+    df = pl.DataFrame({"game_id": [1]})
+    paths = write_dataset(df, tmp_path, "pbp", "play_by_play", 2024)
+    blob = gzip.decompress(paths["rds"].read_bytes())
+
+    for token in (
+        b"fastRhockey_data",  # the class chain load_pwhl_*() expects
+        b"tbl_df",
+        b"data.table",
+        b"data.frame",
+        b"fastRhockey_timestamp",
+        b"fastRhockey_type",
+        b"PWHL play-by-play data",  # the key's registry description
+    ):
+        assert token in blob, f"{token!r} missing from the rds stamp"
+
+
+def test_every_key_has_a_type_label() -> None:
+    """A dataset with no label would stamp its bare key as the printed header."""
+    from pwhl_data_build.config import TYPES
+
+    assert set(TYPES) == set(ALL_KEYS)
+    assert all(v.startswith("PWHL ") for v in TYPES.values())
+
+
 def test_flatten_nested_json_encodes_struct_columns() -> None:
     df = pl.DataFrame({"game_id": [1], "detail": [{"a": 1, "b": 2}]})
     flat = flatten_nested(df)
