@@ -1,36 +1,14 @@
-warning: `VIRTUAL_ENV=/root/.venvs/default` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
-2026-07-22 17:17:08,966 [INFO] season 2026: 133 games in schedule
-2026-07-22 17:17:28,544 [INFO] game_info: 133 rows
-2026-07-22 17:17:28,544 [INFO] game_rosters: 5573 rows
-2026-07-22 17:17:28,544 [INFO] goalie_box: 532 rows
-2026-07-22 17:17:28,544 [INFO] officials: 532 rows
-2026-07-22 17:17:28,544 [INFO] pbp: 23838 rows
-2026-07-22 17:17:28,544 [INFO] penalty_summary: 850 rows
-2026-07-22 17:17:28,544 [INFO] player_box: 5573 rows
-2026-07-22 17:17:28,544 [INFO] scoring_summary: 602 rows
-2026-07-22 17:17:28,544 [INFO] shifts: 104487 rows
-2026-07-22 17:17:28,544 [INFO] shootout: 1 rows
-2026-07-22 17:17:28,544 [INFO] shots_by_period: 437 rows
-2026-07-22 17:17:28,544 [INFO] skater_box: 5041 rows
-2026-07-22 17:17:28,544 [INFO] team_box: 266 rows
-2026-07-22 17:17:28,544 [INFO] three_stars: 399 rows
-warning: `VIRTUAL_ENV=/root/.venvs/default` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
-42 assets uploaded
-[main 6de2336] PWHL Data Updated (Start: 2026 End: 2026)
- 14 files changed, 0 insertions(+), 0 deletions(-)
- rewrite pwhl/game_info/parquet/game_info_2026.parquet (98%)
- rewrite pwhl/game_rosters/parquet/game_rosters_2026.parquet (98%)
- rewrite pwhl/goalie_box/parquet/goalie_box_2026.parquet (93%)
- rewrite pwhl/officials/parquet/officials_2026.parquet (90%)
- rewrite pwhl/pbp/parquet/play_by_play_2026.parquet (90%)
- rewrite pwhl/penalty_summary/parquet/penalty_summary_2026.parquet (93%)
- rewrite pwhl/player_box/parquet/player_box_2026.parquet (99%)
- rewrite pwhl/scoring_summary/parquet/scoring_summary_2026.parquet (93%)
- rewrite pwhl/shifts/parquet/shifts_2026.parquet (91%)
- rewrite pwhl/shootout/parquet/shootout_summary_2026.parquet (98%)
- rewrite pwhl/shots_by_period/parquet/shots_by_period_2026.parquet (100%)
- rewrite pwhl/skater_box/parquet/skater_box_2026.parquet (99%)
- rewrite pwhl/team_box/parquet/team_box_2026.parquet (99%)
- rewrite pwhl/three_stars/parquet/three_stars_2026.parquet (92%)
-To https://github.com/sportsdataverse/fastRhockey-pwhl-data.git
-   b26e973..6de2336  main -> main
+/mnt/sdv_repos/fastRhockey-pwhl-data/scripts/daily_pwhl_python_processor.sh: line 63: uv: command not found
+/mnt/sdv_repos/fastRhockey-pwhl-data/scripts/daily_pwhl_python_processor.sh: line 72: uv: command not found
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.omc/
+	daily_pwhl_data.out
+	python/.omc/
+
+nothing added to commit but untracked files present (use "git add" to track)
+No changes to commit
+Everything up-to-date
