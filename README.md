@@ -92,6 +92,16 @@ sched <- load_pwhl_schedule(2024)
 rosters <- load_pwhl_rosters(2024)
 ```
 
+## Reports & explainers
+
+<!-- BEGIN GENERATED: reports -->
+
+| Report | What it is | Last updated |
+|---|---|---|
+| _none yet_ | — | — |
+
+<!-- END GENERATED: reports -->
+
 ## Automation & status
 
 <!-- BEGIN GENERATED: status -->
