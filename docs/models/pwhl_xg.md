@@ -19,8 +19,12 @@ in-season cron Nov-May (`pwhl_xg_cron.yml`) + dispatch. The publisher REFUSES
 a season with no committed pbp — it fail-fasts rather than scoring an empty
 season. Single home: `models/manifest.yaml`.
 
-## Results / figures
+## Evaluation on the published releases (2026-09-01)
 
-Per-run diagnostics live in the release card sidecar. No figures committed
-yet — a recorded follow-up (EV/PP/SH-split xG candidates are catalogued in
-`dev/t5_xg_reevaluation/`).
+18,031 scored shots across seasons 2024-2026: log-loss **0.2639**, Monte-Carlo rank AUC **0.707**, goal rate 0.0824. In-sample calibration of the published scores; the proxy's own fit and gates live in sdv-py.
+
+Card: [`pwhl_xg_eval_card.json`](pwhl_xg_eval_card.json)
+
+## Figures
+
+![xG calibration](figures/pwhl_xg_calibration.png)
