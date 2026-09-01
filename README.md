@@ -147,3 +147,33 @@ rosters <- load_pwhl_rosters(2024)
 [fastRhockey-data legacy repository (archived; sources: NHL Stats API + PHF)](https://github.com/sportsdataverse/fastRhockey-data)
 
 ## Part of the [SportsDataverse](https://sportsdataverse.org/)
+
+## Consumers
+
+The packages that read what this repo produces:
+
+- **R:** [fastRhockey](https://fastRhockey.sportsdataverse.org) — docs at <https://fastRhockey.sportsdataverse.org>
+- **Python:** [`sportsdataverse.pwhl`](https://github.com/sportsdataverse/sportsdataverse-py) — docs at <https://py.sportsdataverse.org>
+
+## Stage inventory
+
+Every numbered pipeline stage in `python/` (auto-listed; run subsets with the `scripts/*.sh` drivers by number or name):
+
+- `python/pwhl_data_01_pbp_creation.py`
+- `python/pwhl_data_02_shifts_creation.py`
+- `python/pwhl_data_03_skater_box_creation.py`
+- `python/pwhl_data_04_goalie_box_creation.py`
+- `python/pwhl_data_05_team_box_creation.py`
+- `python/pwhl_data_06_game_info_creation.py`
+- `python/pwhl_data_07_game_rosters_creation.py`
+- `python/pwhl_data_08_scoring_summary_creation.py`
+- `python/pwhl_data_09_penalty_summary_creation.py`
+- `python/pwhl_data_10_three_stars_creation.py`
+- `python/pwhl_data_11_officials_creation.py`
+- `python/pwhl_data_12_shots_by_period_creation.py`
+- `python/pwhl_data_13_shootout_creation.py`
+- `python/pwhl_data_14_player_box_creation.py`
+- `python/pwhl_data_15_publish.py`
+- `python/pwhl_model_01_xg_pbp.py`
+
+Model release tags published from here: `pwhl_xg_pbp`
