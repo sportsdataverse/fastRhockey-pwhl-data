@@ -1,0 +1,376 @@
+---
+title: "PWHL Expected Goals — coordinate xG"
+format:
+  gfm:
+    fig-dpi: 120
+execute:
+  echo: false
+  warning: false
+jupyter: python3
+---
+
+```{python}
+#| output: false
+import numpy as np
+import polars as pl
+from pathlib import Path
+from plotnine import (
+    ggplot, aes, geom_point, geom_line, geom_col, geom_abline, geom_jitter,
+    labs, theme_minimal, coord_flip, scale_color_manual,
+)
+from great_tables import GT
+from IPython.display import HTML, display
+from sportsdataverse.pwhl import pwhl_xg_proxy as mx
+
+ROOT = Path.cwd()
+while not (ROOT / "pwhl" / "pbp" / "parquet").is_dir():
+    ROOT = ROOT.parent
+PBP_DIR = ROOT / "pwhl" / "pbp" / "parquet"
+SEASONS = sorted(int(p.stem.split("_")[-1]) for p in PBP_DIR.glob("play_by_play_*.parquet"))
+pbp = {y: pl.read_parquet(PBP_DIR / f"play_by_play_{y}.parquet") for y in SEASONS}
+
+def shots_of(df):
+    return mx._add_preshot_context(df).filter(pl.col("event") == "shot")
+
+shots = {y: shots_of(pbp[y]) for y in SEASONS}
+all_shots = pl.concat(shots.values(), how="diagonal_relaxed")
+
+def gt_show(g):
+    display(HTML(g.as_raw_html()))
+```
+
+The PWHL coordinate expected-goals model estimates the probability that an
+on-net shot becomes a goal, from pre-shot information only: shot geometry
+(distance and angle to the net, derived from the HockeyTech rink coordinates),
+shot type, rebound state, and the pre-shot movement context (what the previous
+event was, how long ago, and how far away). It is a **logistic regression fit
+at call time** in sdv-py (`sportsdataverse.pwhl.pwhl_xg_proxy.fit_pwhl_coord_xg`)
+— there is no bundled artifact; the model is a deterministic function of the
+play-by-play it is handed, which is what makes this document fully
+reproducible from the data committed in this repository. A per-strength
+(EV/PP/SH) Platt recalibration is applied on top of the base logit when the
+frame carries strength columns. An alternative "shot-quality tier" proxy
+exists for API stability but is not the production scorer; its two goal-named
+tiers tautologically encode the outcome, a limitation the module documents
+openly.
+
+This document is the model's reproducible writeup: every number, figure and
+table below is computed at render time from the committed play-by-play
+parquet in `pwhl/pbp/parquet/`.
+
+## Training data
+
+```{python}
+rows = []
+for y in SEASONS:
+    s = shots[y]
+    rows.append({
+        "season": y,
+        "games": pbp[y]["game_id"].n_unique(),
+        "pbp_events": pbp[y].height,
+        "shots": s.height,
+        "goals": int(s["goal"].cast(pl.Int64).sum()),
+        "goal_rate": float(s["goal"].cast(pl.Float64).mean()),
+        "coord_coverage": float(s["x_coord"].is_not_null().mean()),
+    })
+tbl = pl.DataFrame(rows)
+gt_show(
+    GT(tbl.to_pandas())
+    .tab_header(title="PWHL committed play-by-play, by season",
+                subtitle="on-net shots (event == 'shot'); computed at render time")
+    .fmt_number(columns=["pbp_events", "shots"], sep_mark=",", decimals=0)
+    .fmt_percent(columns=["goal_rate", "coord_coverage"], decimals=1)
+)
+```
+
+The corpus is every season of PWHL play-by-play this repository has compiled
+(the league launched in 2024), with shot coordinates at effectively full
+coverage — the reason a coordinate xG is viable here at all. `strength_state`
+exists league-wide because of the game-shifts backfill (T5/R4), and enters the
+model through the `is_pp` / `is_sh` strength one-hots and the per-strength
+recalibrator rather than as a raw feature.
+
+## Exploratory data analysis
+
+```{python}
+#| fig-cap: "Goal rate falls steeply with shot distance; the model's dominant feature."
+geo = mx._shot_geometry(all_shots)
+d = (
+    geo
+    .filter(pl.col("shot_distance").is_not_null())
+    .with_columns((pl.col("shot_distance") / 5).floor().alias("bin"))
+    .group_by("bin")
+    .agg(pl.col("goal").cast(pl.Float64).mean().alias("goal_rate"),
+         pl.len().alias("n"), pl.col("shot_distance").mean().alias("dist"))
+    .filter(pl.col("n") >= 50)
+    .sort("dist")
+)
+(
+    ggplot(d.to_pandas(), aes("dist", "goal_rate"))
+    + geom_point(aes(size="n"), color="#2a6f97", alpha=0.8)
+    + geom_line(color="#2a6f97")
+    + labs(x="shot distance (ft)", y="observed goal rate",
+           title=f"Goal rate by shot distance — seasons {SEASONS[0]}–{SEASONS[-1]}")
+    + theme_minimal()
+)
+```
+
+```{python}
+#| fig-cap: "Shot locations (offensive half, attacking to the right); goals in orange."
+sm = (
+    all_shots.select(
+        pl.col("x_coord").abs().alias("x"), "y_coord",
+        pl.col("goal").cast(pl.Int64).cast(pl.Utf8).alias("goal"))
+    .drop_nulls()
+    .sample(n=min(8000, all_shots.height), seed=7)
+)
+(
+    ggplot(sm.to_pandas(), aes("x", "y_coord", color="goal"))
+    + geom_point(alpha=0.25, size=0.7)
+    + scale_color_manual(values={"0": "#9aa5b1", "1": "#e76f51"})
+    + labs(x="|x| (ft from center; net at 89)", y="y (ft)",
+           title="PWHL on-net shot map (all committed seasons)")
+    + theme_minimal()
+)
+```
+
+```{python}
+st = (
+    all_shots.group_by("strength_state")
+    .agg(pl.len().alias("shots"), pl.col("goal").cast(pl.Float64).mean().alias("goal_rate"))
+    .sort("shots", descending=True)
+    .head(8)
+)
+gt_show(
+    GT(st.to_pandas())
+    .tab_header(title="Shot mix and conversion by strength state")
+    .fmt_number(columns="shots", sep_mark=",", decimals=0)
+    .fmt_percent(columns="goal_rate", decimals=1)
+)
+```
+
+The distance curve is the core of the model: conversion drops from over 20%
+at the crease to low single digits beyond ~45 ft, and it is smooth enough that
+a logistic in distance and angle captures most of the signal. The
+strength-state table shows why strength enters the model: power-play shots
+convert at a visibly higher rate than even-strength shots from a similar mix
+of locations.
+
+## Model, features & importance
+
+```{python}
+model_full = mx.fit_pwhl_coord_xg(pl.concat(pbp.values(), how="diagonal_relaxed"))
+X_full, _, feat_frame = mx._build_xg_features(all_shots, want=model_full.features)
+Xf = np.asarray(X_full, dtype=float)
+sds = np.nanstd(Xf, axis=0)
+coefs = np.asarray(model_full.model.coef_[0], dtype=float)
+imp = pl.DataFrame({
+    "feature": list(model_full.features),
+    "coefficient": [float(c) for c in coefs],
+    "std_importance": [abs(float(c)) * float(s) for c, s in zip(coefs, sds)],
+}).sort("std_importance", descending=True)
+gt_show(
+    GT(imp.to_pandas())
+    .tab_header(title="Logistic coefficients and standardized importance",
+                subtitle="importance = |coef| × sd(feature), full-corpus fit")
+    .fmt_number(columns=["coefficient", "std_importance"], decimals=4)
+)
+```
+
+```{python}
+#| fig-cap: "Standardized feature importance (|coef|·sd)."
+impd = imp.filter(pl.col("std_importance") > 0).to_pandas()
+(
+    ggplot(impd, aes("reorder(feature, std_importance)", "std_importance"))
+    + geom_col(fill="#2a6f97")
+    + coord_flip()
+    + labs(x="", y="|coef| × sd", title="PWHL xG feature importance")
+    + theme_minimal()
+)
+```
+
+## SHAP-style attribution
+
+For a linear-logit model the exact Shapley attribution of each feature on the
+log-odds scale is `coef × (x − E[x])` — no approximation needed. The
+distribution of per-shot attributions shows how each feature moves individual
+shots, not just the average:
+
+```{python}
+#| fig-cap: "Per-shot log-odds attributions (linear SHAP), top 8 features by importance; 2,000-shot sample."
+mu = np.nanmean(Xf, axis=0)
+contrib = (Xf - mu) * coefs
+top = imp.head(8)["feature"].to_list()
+idx = [list(model_full.features).index(f) for f in top]
+rng = np.random.default_rng(7)
+samp = rng.choice(Xf.shape[0], size=min(2000, Xf.shape[0]), replace=False)
+rows = []
+for f, i in zip(top, idx):
+    for s in samp:
+        rows.append({"feature": f, "shap": float(contrib[s, i])})
+shap_df = pl.DataFrame(rows).to_pandas()
+(
+    ggplot(shap_df, aes("feature", "shap"))
+    + geom_jitter(width=0.25, alpha=0.08, size=0.5, color="#2a6f97")
+    + coord_flip()
+    + labs(x="", y="log-odds contribution  coef·(x−mean)",
+           title="Linear SHAP attributions per shot")
+    + theme_minimal()
+)
+```
+
+Distance dominates — its attributions span roughly ±1 log-odds — with rebound
+state the strongest binary: a rebound shot gains about one log-odds (odds
+×2.7) over a non-rebound shot from the same location.
+
+## Evaluation
+
+The honest test for a young league is a **season holdout**: fit on all
+seasons before the newest, score the newest, and compare against a
+constant-rate baseline.
+
+```{python}
+hold = SEASONS[-1]
+train_pbp = pl.concat([pbp[y] for y in SEASONS[:-1]], how="diagonal_relaxed")
+model_ho = mx.fit_pwhl_coord_xg(train_pbp)
+sho = shots[hold]
+xg_ho = model_ho.predict(sho).to_numpy()
+y_ho = sho["goal"].cast(pl.Float64).to_numpy()
+eps = 1e-9
+
+def logloss(p, y):
+    return float(np.mean(-(y * np.log(p + eps) + (1 - y) * np.log(1 - p + eps))))
+
+def rank_auc(p, y):
+    order = np.argsort(p)
+    r = np.empty_like(order, dtype=float)
+    r[order] = np.arange(1, len(p) + 1)
+    n1 = y.sum()
+    n0 = len(y) - n1
+    return float((r[y == 1].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
+
+base_rate = float(train_pbp.filter(pl.col("event") == "shot")["goal"].cast(pl.Float64).mean())
+res = pl.DataFrame({
+    "model": ["coordinate xG", "constant baseline (train goal rate)"],
+    "logloss": [logloss(xg_ho, y_ho), logloss(np.full_like(xg_ho, base_rate), y_ho)],
+    "rank_AUC": [rank_auc(xg_ho, y_ho), 0.5],
+})
+gt_show(
+    GT(res.to_pandas())
+    .tab_header(title=f"Season-holdout evaluation — fit {SEASONS[0]}–{SEASONS[-2]}, scored on {hold}",
+                subtitle=f"{sho.height:,} held-out shots, goal rate {y_ho.mean():.3f}")
+    .fmt_number(columns=["logloss", "rank_AUC"], decimals=4)
+)
+```
+
+```{python}
+#| fig-cap: "Holdout calibration by xG decile — points on the diagonal are perfectly calibrated."
+dec = (
+    pl.DataFrame({"xg": xg_ho, "goal": y_ho})
+    .with_columns((pl.col("xg").rank("ordinal") * 10 / pl.len()).ceil().clip(1, 10).alias("decile"))
+    .group_by("decile").agg(pl.col("xg").mean(), pl.col("goal").mean(), pl.len().alias("n"))
+    .sort("decile")
+)
+(
+    ggplot(dec.to_pandas(), aes("xg", "goal"))
+    + geom_abline(slope=1, intercept=0, linetype="dashed", color="gray")
+    + geom_point(aes(size="n"), color="#2a6f97") + geom_line(color="#2a6f97")
+    + labs(x="mean predicted xG (decile)", y="observed goal rate",
+           title=f"Holdout calibration — {hold} season")
+    + theme_minimal()
+)
+```
+
+The model beats the constant baseline on the held-out season and its decile
+calibration tracks the diagonal. The published per-season assets on the
+`pwhl_xg_pbp` release tag are scored by the same recipe with the full corpus
+available at publish time; their in-sample evaluation lives in
+[`pwhl_xg_eval_card.json`](pwhl_xg_eval_card.json).
+
+## Results — players and teams
+
+```{python}
+xg_all = model_full.predict(all_shots)
+scored = all_shots.with_columns(xg_all.alias("xg"))
+latest = SEASONS[-1]
+players = (
+    scored.filter(pl.col("game_season") == pl.col("game_season").max())
+    .group_by("player_id")
+    .agg(
+        pl.col("player_name_first").first(), pl.col("player_name_last").first(),
+        pl.len().alias("shots"), pl.col("xg").sum().alias("xG"),
+        pl.col("goal").cast(pl.Int64).sum().alias("goals"))
+    .with_columns((pl.col("goals") - pl.col("xG")).alias("GAX"))
+    .sort("xG", descending=True).head(15)
+)
+ros = pl.read_parquet(ROOT / "pwhl" / "rosters" / "parquet" / f"rosters_{latest}.parquet")
+team_of = ros.group_by("player_id").agg(pl.col("team_abbr").last())
+players = players.join(team_of, on="player_id", how="left").with_columns(
+    ("<img src='https://assets.leaguestat.com/pwhl/240x240/"
+     + pl.col("player_id").cast(pl.Utf8) + ".jpg' height='42'/>").alias("headshot"),
+    (pl.col("player_name_first") + " " + pl.col("player_name_last")).alias("player"),
+)
+gt_out = (
+    GT(players.select("headshot", "player", "team_abbr", "shots", "xG", "goals", "GAX").to_pandas())
+    .tab_header(title=f"Top 15 skaters by expected goals — {latest} season",
+                subtitle="xG summed over on-net shots; GAX = goals above expected")
+    .fmt_markdown(columns="headshot")
+    .fmt_number(columns=["xG", "GAX"], decimals=2)
+    .cols_label(headshot="", player="Player", team_abbr="Team", shots="Shots",
+                xG="xG", goals="G", GAX="GAX")
+)
+gt_show(gt_out)
+```
+
+```{python}
+teams = (
+    scored.filter(pl.col("game_season") == pl.col("game_season").max())
+    .with_columns(pl.when(pl.col("team_id") == pl.col("home_team_id"))
+                    .then(pl.col("home_team")).otherwise(pl.col("away_team")).alias("team"))
+    .group_by("team")
+    .agg(pl.col("game_id").n_unique().alias("games"),
+         pl.col("xg").sum().alias("xG_for"),
+         pl.col("goal").cast(pl.Int64).sum().alias("goals_for"))
+    .with_columns((pl.col("xG_for") / pl.col("games")).alias("xG_per_game"))
+    .sort("xG_per_game", descending=True)
+)
+gt_show(
+    GT(teams.to_pandas())
+    .tab_header(title=f"Team shot generation — {latest} season")
+    .fmt_number(columns=["xG_for", "xG_per_game"], decimals=2)
+)
+```
+
+Positive GAX identifies finishers beating their shot quality; sustained
+negative GAX at high xG identifies volume shooters running cold. Because the
+league is three seasons old these player samples are small — GAX here is a
+descriptive ledger, not a talent estimate.
+
+## Provenance & reproducibility
+
+- **Trained on:** every committed PWHL season in this repository
+  (`pwhl/pbp/parquet/play_by_play_{2024..}.parquet`); the holdout evaluation
+  fits on all seasons except the newest and scores the newest.
+- **Model spec:** `sportsdataverse.pwhl.pwhl_xg_proxy.fit_pwhl_coord_xg`
+  (logistic regression + per-strength Platt recalibration); no bundled
+  artifact — deterministic re-fit from data.
+- **Rebuild this document:** `scripts/render_model_docs.sh` (Quarto → GFM;
+  uses this repo's `.venv` via `QUARTO_PYTHON`; deps in the `docs` group:
+  `uv sync --group docs`).
+- **Production surface:** stage `python/pwhl_model_01_xg_pbp.py` publishes
+  xG-enriched per-season parquet to the `pwhl_xg_pbp` release tag
+  (`pwhl_xg_cron.yml`); per-publish metadata in the card sidecars.
+  Single home: `models/manifest.yaml`; registry row: `models/REGISTRY.md`.
+
+## Avenues for improvement & open issues
+
+- **EV/PP/SH-split models** — catalogued in `dev/t5_xg_reevaluation/`; the
+  league-wide `strength_state` column exists precisely to enable this.
+- **Per-season calibration drift** — three seasons now exist; a per-season
+  curve would show whether the shot-quality mix matures as the league does.
+- **Pre-shot passing data does not exist publicly** — royal-road one-timers
+  are under-rated by construction; honest gains come from better rebound and
+  rush definitions, not more features.
+- **Known issue:** the published-release evaluation is in-sample; this
+  document's season-holdout is the honest gate, and it should be re-run as
+  each new season lands (the render does this automatically).
