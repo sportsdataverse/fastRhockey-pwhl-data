@@ -57,3 +57,9 @@ out/
 pwhl/*/rds/
 pwhl/*/csv/
 *.egg-info/
+
+# committed model documentation is an exception to the docs/ ignore
+!docs/
+docs/*
+!docs/models/
+!docs/models/**
