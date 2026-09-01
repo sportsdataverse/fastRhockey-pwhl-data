@@ -92,8 +92,24 @@ sched <- load_pwhl_schedule(2024)
 rosters <- load_pwhl_rosters(2024)
 ```
 
-## Automation
+## Automation & status
 
+<!-- BEGIN GENERATED: status -->
+
+| workflow | schedule | last run |
+|---|---|---|
+| [![daily_pwhl.yml](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl.yml) | on dispatch | 2026-07-18 |
+| [![daily_pwhl_python.yml](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl_python.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl_python.yml) | daily 09:00 UTC in Nov-Dec; daily 09:00 UTC in Jan-Mar; daily 09:00 UTC in Apr-May | never run |
+| [![pwhl_xg_cron.yml](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/pwhl_xg_cron.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/pwhl_xg_cron.yml) | daily 14:00 UTC in Jan-May; daily 14:00 UTC in Nov-Dec | never run |
+
+| release tag | assets | size | last publish |
+|---|---:|---:|---|
+| [`pwhl_pbp`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/pwhl_pbp) | 14 | 23.0 MB | 2026-07-22 |
+| [`pwhl_player_boxscores`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/pwhl_player_boxscores) | 13 | 1.3 MB | 2026-07-22 |
+| [`pwhl_rosters`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/pwhl_rosters) | 13 | 0.2 MB | 2026-07-18 |
+| [`pwhl_schedules`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/pwhl_schedules) | 19 | 0.4 MB | 2026-07-18 |
+
+<!-- END GENERATED: status -->
 - Updated daily during PWHL season (Nov-May) via GitHub Actions
 - Triggered automatically by [fastRhockey-pwhl-raw](https://github.com/sportsdataverse/fastRhockey-pwhl-raw) on push
 - Uploads processed datasets to [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data) releases
