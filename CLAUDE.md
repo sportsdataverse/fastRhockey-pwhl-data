@@ -120,7 +120,7 @@ needs:
    `sportsdataverse/sportsdataverse-data` (run the init script or
    `gh release create pwhl_<tag> -R sportsdataverse/sportsdataverse-data --notes 'init'`).
 4. A matching `load_pwhl_<key>()` wrapper on the `fastRhockey` side
-   (one catalog row in `R/pwhl_loaders.R`).
+   (one catalog row in the fastRhockey package's `R/pwhl_loaders.R`).
 
 Current compiled datasets (`DATASETS` keys): `pbp`, `skater_box`,
 `goalie_box`, `team_box`, `game_info`, `game_rosters`,
