@@ -37,8 +37,8 @@ else
     hit=""
     for f in "${ALL[@]}"; do
       base="$(basename "${f}" .py)"
-      num="${base:9:2}"
-      model="${base:12}"
+      num="${base:10:2}"
+      model="${base:13}"
       if [ "${want}" = "${num}" ] || [ "${want}" = "${model}" ] || [ "${want}" = "${base}" ]; then
         SELECTED+=("${f}")
         hit=1
