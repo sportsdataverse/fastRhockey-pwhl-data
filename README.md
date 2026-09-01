@@ -99,7 +99,7 @@ rosters <- load_pwhl_rosters(2024)
 | Report | What it is | Last updated |
 |---|---|---|
 | [Model registry](models/REGISTRY.md) | model | artifact | gates | retrain, one row per published model | 2026-09-01 |
-| [Model reports & cards](docs/models/) | 1 files, one per item | uncommitted |
+| [Model reports & cards](docs/models/) | 1 files, one per item | 2026-09-01 |
 
 <!-- END GENERATED: reports -->
 
