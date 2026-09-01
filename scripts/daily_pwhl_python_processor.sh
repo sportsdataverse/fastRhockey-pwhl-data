@@ -107,16 +107,13 @@ for i in $(seq "${START_YEAR}" "${END_YEAR}"); do
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
 
-        "${PYBIN}" -m pwhl_data_build.season \
+        "${PYBIN}" -m pwhl_data_01_season \
             -s "$i" --raw-root "${RAW_ROOT}" --out "${OUT_DIR}"
         echo "COMPILE_RC=$?" > "/tmp/_pwhl_compile_rc_${i}"
 
         # Publish only what compiled. Uploading is idempotent (--clobber), so a
         # partial season still ships the datasets that built.
-        "${PYBIN}" -c "
-from pwhl_data_build.publish import publish_season
-print(len(publish_season('${OUT_DIR}', ${i})), 'assets uploaded')
-"
+        "${PYBIN}" -m pwhl_data_02_publish -s "${i}" --out-dir "${OUT_DIR}"
 
         sdv_commit_push "PWHL Data Updated (Start: $i End: $i)" pwhl || PUSH_RC=1
     } 2>&1 | tee "$TMPLOG"
@@ -134,7 +131,7 @@ print(len(publish_season('${OUT_DIR}', ${i})), 'assets uploaded')
     # Surface a failed compile rather than masking it with a successful push;
     # finish the remaining seasons first.
     if [ "${COMPILE_RC:-0}" != "0" ]; then
-        echo "::error ::pwhl_data_build.season for season $i exited with code ${COMPILE_RC}"
+        echo "::error ::pwhl_data_01_season for season $i exited with code ${COMPILE_RC}"
         ANY_FAILED=1
     fi
 done

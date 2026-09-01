@@ -21,3 +21,16 @@ suites:
         release_tag: pwhl_xg_pbp
         wired_via: .github/workflows/pwhl_xg_cron.yml
         notes: "Publisher refuses a season with no committed pbp; model fit/gates live in sdv-py."
+
+# Data pipelines (Option A: numbered domain packages, flat in python/). Thin
+# entries over pwhl_data_build; run subsets with scripts/pwhl_data.sh. Data
+# stages do NOT fingerprint-skip — refresh jobs whose inputs change upstream.
+data_pipelines:
+  season:
+    stage: python/pwhl_data_01_season.py
+    wraps: pwhl_data_build.season
+    workflow: daily_pwhl_python.yml
+  publish:
+    stage: python/pwhl_data_02_publish.py
+    wraps: pwhl_data_build.publish.publish_season
+    workflow: daily_pwhl_python.yml

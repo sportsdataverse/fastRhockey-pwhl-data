@@ -41,3 +41,18 @@ def test_registry_names_every_tag_and_wiring_exists():
         assert m["release_tag"] in registry, f"{name} tag not in REGISTRY.md"
         if m.get("wired_via"):
             assert (ROOT / m["wired_via"]).is_file(), f"{name} wiring file missing"
+
+
+def _data_pipelines() -> dict:
+    return yaml.safe_load(MANIFEST.read_text(encoding="utf-8"))["data_pipelines"]
+
+
+def test_data_stages_and_manifest_agree_bidirectionally():
+    files = {p.stem for p in (ROOT / "python").glob("pwhl_data_[0-9][0-9]_*.py")}
+    manifest = {Path(m["stage"]).stem for m in _data_pipelines().values()}
+    assert files == manifest, f"files-only={files - manifest}, manifest-only={manifest - files}"
+    for name, m in _data_pipelines().items():
+        stage = ROOT / m["stage"]
+        assert stage.is_file(), f"{name} stage missing"
+        assert "def main(" in stage.read_text(encoding="utf-8")
+        assert (ROOT / ".github" / "workflows" / m["workflow"]).is_file(), f"{name} workflow missing"

@@ -113,7 +113,7 @@ jobs:
         run: |
           for y in $(seq ${{ steps.years.outputs.start }} ${{ steps.years.outputs.end }}); do
             # Track B: --raw-root defaults to raw.githubusercontent — schedule + finals over HTTP
-            uv run python -m pwhl_data_build.season -s "$y" \
+            uv run python -m pwhl_data_01_season -s "$y" \
               --out "$GITHUB_WORKSPACE/pwhl"
           done
 
@@ -122,9 +122,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SDV_GH_TOKEN }}
         run: |
-          for y in $(seq ${{ steps.years.outputs.start }} ${{ steps.years.outputs.end }}); do
-            uv run python -c "from pwhl_data_build.publish import publish_season; print(len(publish_season('$GITHUB_WORKSPACE/pwhl', $y)), 'assets uploaded')"
-          done
+          uv run python -m pwhl_data_02_publish \
+            -s ${{ steps.years.outputs.start }} -e ${{ steps.years.outputs.end }} \
+            --out-dir "$GITHUB_WORKSPACE/pwhl"
 
       - name: Commit compiled parquets
         working-directory: .
