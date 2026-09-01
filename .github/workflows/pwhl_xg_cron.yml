@@ -102,7 +102,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SDV_GH_TOKEN }}
         run: |
-          uv run --no-sync python -m pwhl_model_publish xg \
+          uv run --no-sync python -m pwhl_model_01_xg_pbp \
             --seasons "$SEASONS" \
             --out out/pwhl_xg_pbp \
             --tag pwhl_xg_pbp \

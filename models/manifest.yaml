@@ -1,0 +1,23 @@
+# Model stage manifest — single home for the model/stage list (Track C step 2).
+# One model = one numbered pipeline, flat in python/ beside the numbered data
+# stages; run subsets with scripts/pwhl_models.sh. tests/test_model_manifest.py
+# keeps this file, the stage scripts, and models/REGISTRY.md in lockstep
+# (file-based guards).
+#
+# Honest N/As (compute-on-demand / enrichment surfaces): no fitted artifacts
+# to commit (step 6); no fingerprint skip (inputs are living upstream data —
+# a skip is silent staleness); the published card sidecars carry the
+# per-publish metadata that a ledger.jsonl would otherwise hold.
+
+driver: scripts/pwhl_models.sh
+
+suites:
+  xg:
+    models:
+      xg_pbp:
+        stage: python/pwhl_model_01_xg_pbp.py
+        wraps: pwhl_model_publish xg
+        wraps_token: '"xg"'
+        release_tag: pwhl_xg_pbp
+        wired_via: .github/workflows/pwhl_xg_cron.yml
+        notes: "Publisher refuses a season with no committed pbp; model fit/gates live in sdv-py."
