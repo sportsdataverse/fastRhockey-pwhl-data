@@ -115,12 +115,22 @@ def main(argv: list[str] | None = None) -> int:
         "--raw-root", default=RAW_BASE, help="pwhl-raw checkout path or base URL"
     )
     ap.add_argument("--out", default="pwhl", help="output dir (default: pwhl)")
+    ap.add_argument("--families", nargs="+", default=None, metavar="KEY",
+                    help="restrict to these dataset families (default: all)")
     args = ap.parse_args(argv)
+    if args.families:
+        from pwhl_data_build.config import TYPES
+
+        unknown = sorted(set(args.families) - set(TYPES))
+        if unknown:
+            ap.error(f"unknown families: {unknown} (known: {sorted(TYPES)})")
 
     logging.basicConfig(
         level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
     )
     season = compile_season(args.season, args.raw_root)
+    if args.families:
+        season = {k: v for k, v in season.items() if k in args.families}
     written = write_datasets(season, args.out, args.season)
     for key, n in sorted(written.items()):
         log.info("%s: %d rows", key, n)

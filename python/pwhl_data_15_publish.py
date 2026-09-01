@@ -1,4 +1,4 @@
-"""Stage 02 — publish compiled season assets to the pwhl_* release tags.
+"""Stage 15 — publish compiled season assets to the pwhl_* release tags.
 
 Numbered CLI over ``pwhl_data_build.publish.publish_season``, previously
 reachable only as inline ``python -c`` snippets in the workflow and the
@@ -8,8 +8,8 @@ the datasets that built. Single home: models/manifest.yaml.
 
 Usage::
 
-    python -m pwhl_data_02_publish -s 2026 [--out-dir pwhl] [--dry-run]
-    scripts/pwhl_data.sh 02
+    python -m pwhl_data_15_publish -s 2026 [--out-dir pwhl] [--dry-run]
+    scripts/pwhl_data.sh 15
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ import argparse
 def main(argv: list[str] | None = None) -> int:
     from pwhl_data_build.publish import publish_season
 
-    ap = argparse.ArgumentParser(prog="python -m pwhl_data_02_publish")
+    ap = argparse.ArgumentParser(prog="python -m pwhl_data_15_publish")
     ap.add_argument("-s", "--start", type=int, required=True, help="start season end-year")
     ap.add_argument("-e", "--end", type=int, help="end season end-year (default: --start)")
     ap.add_argument("--out-dir", default="pwhl", help="compiled tree (pwhl_data_01_season --out)")

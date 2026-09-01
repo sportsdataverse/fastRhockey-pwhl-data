@@ -107,9 +107,13 @@ for i in $(seq "${START_YEAR}" "${END_YEAR}"); do
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
 
-        "${PYBIN}" -m pwhl_data_01_season \
-            -s "$i" --raw-root "${RAW_ROOT}" --out "${OUT_DIR}"
-        echo "COMPILE_RC=$?" > "/tmp/_pwhl_compile_rc_${i}"
+        COMPILE_RC_I=0
+        for f in python/pwhl_data_[0-9][0-9]_*_creation.py; do
+            mod=$(basename "$f" .py)
+            "${PYBIN}" -m "${mod}" \
+                -s "$i" --raw-root "${RAW_ROOT}" --out "${OUT_DIR}" || COMPILE_RC_I=$?
+        done
+        echo "COMPILE_RC=${COMPILE_RC_I}" > "/tmp/_pwhl_compile_rc_${i}"
 
         # Publish only what compiled. Uploading is idempotent (--clobber), so a
         # partial season still ships the datasets that built.
@@ -131,7 +135,7 @@ for i in $(seq "${START_YEAR}" "${END_YEAR}"); do
     # Surface a failed compile rather than masking it with a successful push;
     # finish the remaining seasons first.
     if [ "${COMPILE_RC:-0}" != "0" ]; then
-        echo "::error ::pwhl_data_01_season for season $i exited with code ${COMPILE_RC}"
+        echo "::error ::pwhl_data family creation stages for season $i exited with code ${COMPILE_RC}"
         ANY_FAILED=1
     fi
 done

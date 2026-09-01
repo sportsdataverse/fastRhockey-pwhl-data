@@ -113,8 +113,13 @@ jobs:
         run: |
           for y in $(seq ${{ steps.years.outputs.start }} ${{ steps.years.outputs.end }}); do
             # Track B: --raw-root defaults to raw.githubusercontent — schedule + finals over HTTP
-            uv run python -m pwhl_data_01_season -s "$y" \
-              --out "$GITHUB_WORKSPACE/pwhl"
+            # One numbered creation stage per dataset family (generated
+            # from the config DATASETS registry).
+            for f in python/pwhl_data_[0-9][0-9]_*_creation.py; do
+              mod=$(basename "$f" .py)
+              uv run python -m "$mod" -s "$y" \
+                --out "$GITHUB_WORKSPACE/pwhl"
+            done
           done
 
       - name: Publish to sportsdataverse-data releases
