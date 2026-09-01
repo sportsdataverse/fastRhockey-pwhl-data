@@ -62,19 +62,6 @@ jobs:
         with:
           persist-credentials: false  # the commit-back step authenticates the push explicitly
 
-      # The compiler needs both the per-game finals and the season schedule parquet
-      # (season_game_ids reads the schedule to enumerate a season's games).
-      - name: Sparse-checkout pwhl-raw
-        uses: actions/checkout@v5
-        with:
-          repository: sportsdataverse/fastRhockey-pwhl-raw
-          path: _raw
-          sparse-checkout: |
-            pwhl/json/final
-            pwhl/schedules/parquet
-          sparse-checkout-cone-mode: true
-          persist-credentials: false
-
       - name: Set up uv
         uses: astral-sh/setup-uv@v8.1.0
         with:
@@ -125,8 +112,9 @@ jobs:
       - name: Compile season datasets
         run: |
           for y in $(seq ${{ steps.years.outputs.start }} ${{ steps.years.outputs.end }}); do
+            # Track B: --raw-root defaults to raw.githubusercontent — schedule + finals over HTTP
             uv run python -m pwhl_data_build.season -s "$y" \
-              --raw-root "$GITHUB_WORKSPACE/_raw" --out "$GITHUB_WORKSPACE/pwhl"
+              --out "$GITHUB_WORKSPACE/pwhl"
           done
 
       - name: Publish to sportsdataverse-data releases

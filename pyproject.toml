@@ -14,7 +14,13 @@ dependencies = [
 [dependency-groups]
 dev = ["pytest>=8.0"]
 
+[tool.setuptools]
+# Packages live under python/ (template layout); map them so the editable
+# install resolves `python -m pwhl_data_build.season` from the repo root.
+package-dir = {"" = "python"}
+
 [tool.setuptools.packages.find]
+where = ["python"]
 include = ["pwhl_model_publish*", "pwhl_data_build*"]
 
 [build-system]
