@@ -24,6 +24,8 @@ flowchart TB;
     subgraph B[fastRhockey-pwhl-data];
         direction TB;
         B1[scripts/daily_pwhl_R_processor.sh]-->B2[R/pwhl_data_creation.R];
+        B3[scripts/daily_pwhl_python_processor.sh]-->B4[python/pwhl_data_01_pbp_creation.py ... 15_publish.py];
+        B5[scripts/pwhl_models.sh]-->B6[python/pwhl_model_01_xg_pbp.py];
     end;
 
     subgraph C[sportsdataverse Releases];
