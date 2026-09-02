@@ -18,9 +18,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import polars as pl
+from sportsdataverse._rds import write_rds
 
 from pwhl_data_build.config import TYPES
-from sportsdataverse._rds import write_rds
 
 # The stamp ``fastRhockey:::make_fastRhockey_data()`` applies (fastRhockey/R/utils.R:364).
 #
