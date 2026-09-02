@@ -15,12 +15,22 @@ import logging
 import subprocess
 from pathlib import Path
 
+from sportsdataverse.release import upload_release_sidecars
+
 from pwhl_data_build.config import OUTPUTS
 
 log = logging.getLogger(__name__)
 
 _REPO = "sportsdataverse/sportsdataverse-data"
 _RELEASE_EXTS: tuple[str, ...] = ("parquet", "rds", "csv")
+
+#: Release sidecar metadata. Every published tag carries package_function.txt/.json
+#: naming the loader a consumer reads it through -- the half of R's
+#: sportsdataverse_save() this port dropped. fastRhockey names every one of these
+#: loaders after its tag, and the derivation was checked against the
+#: package_function.json already published to all 14 tags, so re-stamping from
+#: Python does not change what a consumer sees.
+PKG_FUNCTION: dict[str, str] = {tag: f"fastRhockey::load_{tag}()" for _prefix, tag in OUTPUTS.values()}
 
 
 def _run(args: list[str], timeout: int = 600) -> subprocess.CompletedProcess:
@@ -35,11 +45,14 @@ def release_exists(tag: str, repo: str = _REPO) -> bool:
 
 def publish_file(path: Path, tag: str, *, repo: str = _REPO) -> None:
     """Upload one artifact to a release tag (clobbering any prior asset)."""
-    res = _run(["release", "upload", tag, str(path), "--repo", repo, "--clobber"])
+    _upload(["release", "upload", tag, str(path), "--repo", repo, "--clobber"], path.name, tag)
+
+
+def _upload(args: list[str], what: str, tag: str) -> None:
+    """One ``gh release upload`` -- the chokepoint the sidecar stamp shares."""
+    res = _run(args)
     if res.returncode != 0:
-        raise RuntimeError(
-            f"gh release upload failed for {path.name} -> {tag}: {res.stderr.strip()}"
-        )
+        raise RuntimeError(f"gh release upload failed for {what} -> {tag}: {res.stderr.strip()}")
 
 
 def publish_season(
@@ -50,6 +63,7 @@ def publish_season(
     done: list[tuple[str, str]] = []
     checked: dict[str, bool] = {}
     for key, (prefix, tag) in OUTPUTS.items():
+        uploaded = 0
         for ext in _RELEASE_EXTS:
             path = out / key / ext / f"{prefix}_{season_year}.{ext}"
             if not path.exists():
@@ -67,5 +81,16 @@ def publish_season(
                 )
                 continue
             publish_file(path, tag, repo=repo)
+            uploaded += 1
             done.append((tag, path.name))
+        # stamp LAST so the timestamp describes a finished upload, and only when
+        # something actually uploaded -- a stamp on a no-op run would claim data
+        # moved when it did not
+        if uploaded:
+            upload_release_sidecars(
+                tag,
+                runner=lambda args, _tag=tag: _upload(args, Path(args[3]).name, _tag),
+                pkg_function=PKG_FUNCTION.get(tag),
+                repo=repo,
+            )
     return done
