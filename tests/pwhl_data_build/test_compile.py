@@ -6,7 +6,6 @@ from pathlib import Path
 
 import polars as pl
 import pytest
-
 from pwhl_data_build.build import build_season
 from pwhl_data_build.config import ALL_KEYS, OUTPUTS
 from pwhl_data_build.extract import extract_all

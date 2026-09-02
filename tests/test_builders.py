@@ -11,7 +11,6 @@ import json
 
 import polars as pl
 import pytest
-
 from pwhl_model_publish.artifacts import upload_artifacts
 from pwhl_model_publish.builders import MIN_SEASON, build_xg, write_xg_card
 from pwhl_model_publish.cli import _seasons, main
