@@ -20,6 +20,9 @@ SIDECAR_NAMES = [
 ]
 
 
+#: release metadata sidecars -- asserted separately, not a data asset
+SIDECARS = ("timestamp.", "package_function.")
+
 def _stage(tmp_path, key, prefix, exts=("parquet", "rds")):
     for ext in exts:
         path = tmp_path / key / ext / f"{prefix}_2025.{ext}"
@@ -52,7 +55,12 @@ def test_publish_season_stamps_each_tag_last(tmp_path, monkeypatch):
 
     names = [Path(c[3]).name for c in calls if c[:2] == ["release", "upload"]]
     assert names == [f"{prefix}_2025.parquet", f"{prefix}_2025.rds", *SIDECAR_NAMES]
-    uploads = [c for c in calls if c[:2] == ["release", "upload"]]
+    uploads = [
+        c
+        for c in calls
+        if c[:2] == ["release", "upload"]
+        and not Path(c[3]).name.startswith(SIDECARS)
+    ]
     assert all(c[2] == tag and c[-1] == "--clobber" for c in uploads)
 
 
@@ -67,7 +75,12 @@ def test_no_files_means_no_stamp(tmp_path, monkeypatch):
     monkeypatch.setattr(publish, "_run", lambda args, timeout=600: (calls.append(args), _Ok())[1])
     publish.publish_season(tmp_path, 2025)
 
-    assert not [c for c in calls if c[:2] == ["release", "upload"]]
+    assert not [
+        c
+        for c in calls
+        if c[:2] == ["release", "upload"]
+        and not Path(c[3]).name.startswith(SIDECARS)
+    ]
 
 
 def test_stamped_sidecars_carry_the_loader_and_a_timestamp(tmp_path, monkeypatch):
