@@ -9,6 +9,7 @@ wrong answer.
 import json
 from pathlib import Path
 
+import pytest
 from pwhl_data_build import publish
 from pwhl_data_build.config import OUTPUTS
 
@@ -106,3 +107,31 @@ def test_stamped_sidecars_carry_the_loader_and_a_timestamp(tmp_path, monkeypatch
     assert seen["package_function.txt"].strip() == publish.PKG_FUNCTION[tag]
     assert json.loads(seen["package_function.json"])["package_function"] == publish.PKG_FUNCTION[tag]
     assert json.loads(seen["timestamp.json"])["last_updated"].strip()
+
+
+@pytest.mark.parametrize(("tag", "expected"), sorted(publish.PKG_FUNCTION.items()))
+def test_every_mapping_reaches_the_sidecar_verbatim(tmp_path, monkeypatch, tag, expected):
+    """Pin every tag's loader name, not just the one the happy path uses."""
+    seen: dict[str, str] = {}
+
+    class _Ok:
+        returncode = 0
+        stderr = ""
+
+    def _fake_run(args, timeout=600):
+        if args[:2] == ["release", "upload"]:
+            path = Path(args[3])
+            if path.name.startswith(("timestamp.", "package_function.")):
+                seen[path.name] = path.read_text()
+        return _Ok()
+
+    monkeypatch.setattr(publish, "_run", _fake_run)
+    publish.upload_release_sidecars(
+        tag,
+        runner=lambda args: publish._upload(args, Path(args[3]).name, tag),
+        pkg_function=publish.PKG_FUNCTION[tag],
+        repo="r/r",
+    )
+
+    assert seen["package_function.txt"].strip() == expected
+    assert json.loads(seen["package_function.json"])["package_function"] == expected

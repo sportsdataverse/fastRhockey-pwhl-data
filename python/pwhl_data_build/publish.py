@@ -26,11 +26,28 @@ _RELEASE_EXTS: tuple[str, ...] = ("parquet", "rds", "csv")
 
 #: Release sidecar metadata. Every published tag carries package_function.txt/.json
 #: naming the loader a consumer reads it through -- the half of R's
-#: sportsdataverse_save() this port dropped. fastRhockey names every one of these
-#: loaders after its tag, and the derivation was checked against the
-#: package_function.json already published to all 14 tags, so re-stamping from
-#: Python does not change what a consumer sees.
-PKG_FUNCTION: dict[str, str] = {tag: f"fastRhockey::load_{tag}()" for _prefix, tag in OUTPUTS.values()}
+#: sportsdataverse_save() this port dropped. Each value is the exact string the
+#: R producer already published to that tag (read back off the release assets),
+#: so re-stamping from Python does not change what a consumer sees. Spelled out
+#: rather than derived from the tag: these are consumer-facing strings, and a
+#: future tag whose loader breaks the naming pattern would otherwise ship a name
+#: that does not resolve.
+PKG_FUNCTION: dict[str, str] = {
+    "pwhl_game_info": "fastRhockey::load_pwhl_game_info()",
+    "pwhl_game_rosters": "fastRhockey::load_pwhl_game_rosters()",
+    "pwhl_goalie_boxscores": "fastRhockey::load_pwhl_goalie_boxscores()",
+    "pwhl_officials": "fastRhockey::load_pwhl_officials()",
+    "pwhl_pbp": "fastRhockey::load_pwhl_pbp()",
+    "pwhl_penalty_summary": "fastRhockey::load_pwhl_penalty_summary()",
+    "pwhl_player_boxscores": "fastRhockey::load_pwhl_player_boxscores()",
+    "pwhl_scoring_summary": "fastRhockey::load_pwhl_scoring_summary()",
+    "pwhl_shifts": "fastRhockey::load_pwhl_shifts()",
+    "pwhl_shootout": "fastRhockey::load_pwhl_shootout()",
+    "pwhl_shots_by_period": "fastRhockey::load_pwhl_shots_by_period()",
+    "pwhl_skater_boxscores": "fastRhockey::load_pwhl_skater_boxscores()",
+    "pwhl_team_boxscores": "fastRhockey::load_pwhl_team_boxscores()",
+    "pwhl_three_stars": "fastRhockey::load_pwhl_three_stars()",
+}
 
 
 def _run(args: list[str], timeout: int = 600) -> subprocess.CompletedProcess:
