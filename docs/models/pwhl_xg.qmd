@@ -27,12 +27,28 @@ while not (ROOT / "pwhl" / "pbp" / "parquet").is_dir():
     ROOT = ROOT.parent
 PBP_DIR = ROOT / "pwhl" / "pbp" / "parquet"
 SEASONS = sorted(int(p.stem.split("_")[-1]) for p in PBP_DIR.glob("play_by_play_*.parquet"))
-pbp = {y: pl.read_parquet(PBP_DIR / f"play_by_play_{y}.parquet") for y in SEASONS}
+
+def load_season(y):
+    df = pl.read_parquet(PBP_DIR / f"play_by_play_{y}.parquet")
+    # (1) Drop the feed's shot_distance/shot_angle (carried by the 2025-26 file, absent before):
+    #     _shot_geometry() REUSES them when present, so in a pooled multi-season frame every
+    #     earlier-season shot keeps a NULL distance that the feature matrix fills with 0.0.
+    #     Recomputing from the rink-feet coordinates is lossless (max |diff| 0.0 ft on 2025-26).
+    # (2) Add the R4 skater columns as null where a season lacks them, so predict() computes
+    #     is_home from the team ids instead of zero-filling the whole strength block.
+    df = df.drop([c for c in ("shot_distance", "shot_angle") if c in df.columns])
+    return df.with_columns(
+        [pl.lit(None, dtype=pl.Int64).alias(c) for c in ("skaters_home", "skaters_away") if c not in df.columns]
+    )
+
+pbp = {y: load_season(y) for y in SEASONS}
 
 def shots_of(df):
     return mx._add_preshot_context(df).filter(pl.col("event") == "shot")
 
-shots = {y: shots_of(pbp[y]) for y in SEASONS}
+# file_season = the season parquet a row came from (game_season is the calendar year:
+# the 2025-26 file holds Nov-Dec 2025 games with game_season == 2025)
+shots = {y: shots_of(pbp[y]).with_columns(pl.lit(y).alias("file_season")) for y in SEASONS}
 all_shots = pl.concat(shots.values(), how="diagonal_relaxed")
 
 def gt_show(g):
@@ -89,6 +105,36 @@ coverage — the reason a coordinate xG is viable here at all. `strength_state`
 exists league-wide because of the game-shifts backfill (T5/R4), and enters the
 model through the `is_pp` / `is_sh` strength one-hots and the per-strength
 recalibrator rather than as a raw feature.
+
+One data defect is recomputed at every render so it cannot silently go stale.
+From 2025-26 the feed carries `shot_distance` / `shot_angle` columns; earlier
+seasons do not. `pwhl_xg_proxy._shot_geometry()` reuses those columns whenever
+they are present, so in a **pooled** multi-season frame every earlier-season
+shot keeps a null distance, which `_build_xg_features` then fills with 0.0 —
+the production publisher (`pwhl_model_publish.builders.build_xg`) fits once on
+exactly such a pooled frame. This document drops the feed geometry and recomputes
+it from the coordinates (lossless; the two agree to 0.0 ft on 2025-26), so every
+number below is on real geometry. The count goes to zero when sdv-py's
+`_shot_geometry` recomputes null geometry:
+
+```{python}
+raw_pooled = pl.concat(
+    [pl.read_parquet(PBP_DIR / f"play_by_play_{y}.parquet") for y in SEASONS], how="diagonal_relaxed"
+)
+raw_shots = raw_pooled.filter((pl.col("event") == "shot") & pl.col("x_coord").is_not_null())
+geo_null = int(mx._shot_geometry(raw_shots)["shot_distance"].is_null().sum())
+gt_show(
+    GT(pl.DataFrame({
+        "pooled on-net shots with coordinates": [raw_shots.height],
+        "null shot_distance after _shot_geometry (would train at 0 ft)": [geo_null],
+        "share": [geo_null / raw_shots.height],
+    }).to_pandas())
+    .tab_header(title="Pooled-frame geometry contamination — recomputed at render time",
+                subtitle="sdv-py pwhl_xg_proxy._shot_geometry reuses feed geometry columns even where they are null")
+    .fmt_number(columns=["pooled on-net shots with coordinates", "null shot_distance after _shot_geometry (would train at 0 ft)"], sep_mark=",", decimals=0)
+    .fmt_percent(columns="share", decimals=1)
+)
+```
 
 ## Exploratory data analysis
 
@@ -287,6 +333,81 @@ calibration tracks the diagonal. The published per-season assets on the
 available at publish time; their in-sample evaluation lives in
 [`pwhl_xg_eval_card.json`](pwhl_xg_eval_card.json).
 
+## Per-season calibration
+
+Three seasons now exist — enough to ask whether calibration holds season by
+season as the league matures, not only on the newest one. Each season is
+scored **leave-one-season-out**: the model is re-fit on the other seasons and
+predicts the held-out one, so no season is scored by a model that saw it. The
+per-season decile curves and the binomial calibration z-score
+(`z = (goals − Σᵢ xGᵢ) / sqrt(Σᵢ xGᵢ(1 − xGᵢ))` — the variance is the sum of the
+per-shot Bernoulli variances, not `ΣxG` times a single `(1 − xG)`; a calibrated season has |z| ≲ 2
+whatever its shot count) are computed at render time and extend automatically
+as seasons land.
+
+```{python}
+loso = {}
+for y in SEASONS:
+    fit_pbp = pl.concat([pbp[s] for s in SEASONS if s != y], how="diagonal_relaxed")
+    m = mx.fit_pwhl_coord_xg(fit_pbp)
+    held = all_shots.filter(pl.col("file_season") == y)  # concatenated frame: strength columns present (null where unknown)
+    loso[y] = (m.predict(held).to_numpy(), held["goal"].cast(pl.Float64).to_numpy())
+rows = []
+for y, (p, yy) in loso.items():
+    xg_sum, var = float(p.sum()), float((p * (1 - p)).sum())
+    rows.append({
+        "season": y, "shots": len(yy), "goals": int(yy.sum()), "xG": xg_sum,
+        "goals_per_xG": float(yy.sum()) / xg_sum, "z": (float(yy.sum()) - xg_sum) / np.sqrt(var),
+        "logloss": logloss(p, yy), "rank_AUC": rank_auc(p, yy),
+    })
+season_cal = pl.DataFrame(rows)
+gt_show(
+    GT(season_cal.to_pandas())
+    .tab_header(title="Per-season calibration — leave-one-season-out",
+                subtitle="each season scored by a model fit on the other committed seasons")
+    .fmt_number(columns=["shots", "goals"], sep_mark=",", decimals=0)
+    .fmt_number(columns=["xG"], decimals=1)
+    .fmt_number(columns=["goals_per_xG", "z", "logloss", "rank_AUC"], decimals=3)
+)
+```
+
+```{python}
+#| fig-cap: "Per-season calibration curves by xG decile (leave-one-season-out); the dashed line is perfect calibration."
+dec_rows = []
+for y, (p, yy) in loso.items():
+    dec_rows.append(
+        pl.DataFrame({"xg": p, "goal": yy})
+        .with_columns((pl.col("xg").rank("ordinal") * 10 / pl.len()).ceil().clip(1, 10).alias("decile"))
+        .group_by("decile").agg(pl.col("xg").mean(), pl.col("goal").mean(), pl.len().alias("n"))
+        .with_columns(pl.lit(str(y)).alias("season"))
+    )
+dec_s = pl.concat(dec_rows).sort("season", "decile").to_pandas()
+(
+    ggplot(dec_s, aes("xg", "goal", color="season"))
+    + geom_abline(slope=1, intercept=0, linetype="dashed", color="gray")
+    + geom_point(aes(size="n"), alpha=0.8) + geom_line()
+    + labs(x="mean predicted xG (decile)", y="observed goal rate",
+           title="Per-season calibration — leave-one-season-out")
+    + theme_minimal()
+)
+```
+
+Read the table with the z column first: a season outside |z| ≈ 2 is one the
+other seasons' shot-quality mix does not price correctly, and the decile curve
+for that season shows *where* (crease vs perimeter) the miss sits. Two data
+facts shape these rows. First, `strength_state` coverage differs sharply by
+season (the 2024 and 2025 parquets carry no skater/strength columns at all,
+2026 is ~99% covered — see the strength table above), so the `is_pp` / `is_sh`
+features and the per-strength recalibrator are effectively active only for
+2026 shots, and a model fit without 2026 has no strength features at all.
+Second, the frames are normalized at load (see the setup cell): the feed's
+geometry columns are dropped and recomputed from coordinates, and the skater
+columns exist (null) in every season. Without the latter, `predict()` on a lone
+2024/2025 frame zero-fills the whole strength block *including* `is_home` and
+returns ~25% lower xG for the same rows; without the former, a pooled fit trains
+58% of its shots at distance 0 (the contamination table above).
+
+
 ## Results — players and teams
 
 ```{python}
@@ -366,11 +487,27 @@ descriptive ledger, not a talent estimate.
 
 - **EV/PP/SH-split models** — catalogued in `dev/t5_xg_reevaluation/`; the
   league-wide `strength_state` column exists precisely to enable this.
-- **Per-season calibration drift** — three seasons now exist; a per-season
-  curve would show whether the shot-quality mix matures as the league does.
+- **Resolved (2026-09-01, PR #5):** *Per-season calibration
+  drift* — the leave-one-season-out table and decile curves above recompute
+  per-season calibration (goals/ΣxG, binomial z, AUC) at every render and
+  extend automatically as seasons land.
 - **Pre-shot passing data does not exist publicly** — royal-road one-timers
   are under-rated by construction; honest gains come from better rebound and
   rush definitions, not more features.
 - **Known issue:** the published-release evaluation is in-sample; this
   document's season-holdout is the honest gate, and it should be re-run as
   each new season lands (the render does this automatically).
+- **Known issue (measured 2026-09-01):** *pooled-fit geometry contamination* —
+  `pwhl_xg_proxy._shot_geometry` reuses the feed's `shot_distance`/`shot_angle`
+  when the columns exist, so in a pooled frame the pre-2025-26 seasons (which
+  lack them) keep null geometry that `_build_xg_features` fills with 0.0:
+  10,593 of 18,031 pooled shots (58%) train at distance 0. The production
+  publisher fits on exactly that pooled frame, so the published `pwhl_xg_pbp`
+  assets are affected until sdv-py recomputes null geometry (the table in
+  *Training data* re-measures it every render). This document works around it
+  by dropping the feed geometry at load.
+- **Known issue (measured 2026-09-01):** *lone early-season scoring* — a 2024 or
+  2025 frame scored on its own lacks the skater columns, so `predict()`
+  zero-fills `is_home` together with the strength block (~25% lower xG for the
+  same rows). The load step here adds the columns as null; the durable fix is
+  for `_build_xg_features` not to tie `is_home` to the skater columns.
