@@ -340,7 +340,8 @@ season as the league matures, not only on the newest one. Each season is
 scored **leave-one-season-out**: the model is re-fit on the other seasons and
 predicts the held-out one, so no season is scored by a model that saw it. The
 per-season decile curves and the binomial calibration z-score
-(`z = (goals − ΣxG) / sqrt(ΣxG · (1 − xG))`; a calibrated season has |z| ≲ 2
+(`z = (goals − Σᵢ xGᵢ) / sqrt(Σᵢ xGᵢ(1 − xGᵢ))` — the variance is the sum of the
+per-shot Bernoulli variances, not `ΣxG` times a single `(1 − xG)`; a calibrated season has |z| ≲ 2
 whatever its shot count) are computed at render time and extend automatically
 as seasons land.
 
