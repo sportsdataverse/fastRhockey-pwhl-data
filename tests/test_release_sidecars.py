@@ -76,12 +76,10 @@ def test_no_files_means_no_stamp(tmp_path, monkeypatch):
     monkeypatch.setattr(publish, "_run", lambda args, timeout=600: (calls.append(args), _Ok())[1])
     publish.publish_season(tmp_path, 2025)
 
-    assert not [
-        c
-        for c in calls
-        if c[:2] == ["release", "upload"]
-        and not Path(c[3]).name.startswith(SIDECARS)
-    ]
+    # Unfiltered on purpose: this test's whole claim is that NOTHING is uploaded,
+    # sidecars included. Excluding SIDECARS here made it blind to exactly the
+    # regression it is named for -- a stamp on a no-op run would still have passed.
+    assert not [c for c in calls if c[:2] == ["release", "upload"]]
 
 
 def test_stamped_sidecars_carry_the_loader_and_a_timestamp(tmp_path, monkeypatch):
