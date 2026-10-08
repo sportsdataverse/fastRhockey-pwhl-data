@@ -123,7 +123,8 @@ jobs:
             # Track B: --raw-root defaults to raw.githubusercontent — schedule + finals over HTTP
             # One numbered creation stage per dataset family (generated
             # from the config DATASETS registry).
-            for f in python/pwhl_data_[0-9][0-9]_*_creation.py; do
+            # the job runs in python/ (defaults.run.working-directory), so glob from there
+            for f in pwhl_data_[0-9][0-9]_*_creation.py; do
               mod=$(basename "$f" .py)
               uv run python -m "$mod" -s "$y" \
                 --out "$GITHUB_WORKSPACE/pwhl"
@@ -135,11 +136,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SDV_GH_TOKEN }}
         run: |
-          uv run python -m pwhl_data_02_publish \
+          uv run python -m pwhl_data_15_publish \
+            -s ${{ steps.years.outputs.start }} -e ${{ steps.years.outputs.end }} \
+            --out-dir "$GITHUB_WORKSPACE/pwhl"
+
+      - name: Plan the uploads (publish=false)
+        if: ${{ github.event.inputs.publish == 'false' }}
+        run: |
+          uv run python -m pwhl_data_15_publish --dry-run \
             -s ${{ steps.years.outputs.start }} -e ${{ steps.years.outputs.end }} \
             --out-dir "$GITHUB_WORKSPACE/pwhl"
 
       - name: Commit compiled parquets
+        # a publish=false run is a dry run: compile + plan only, no push to main
+        if: ${{ github.event.inputs.publish != 'false' }}
         working-directory: .
         env:
           GH_TOKEN: ${{ github.token }}
