@@ -85,13 +85,14 @@ def build_xg(
     frames = {s: _read_pbp(s, pbp_dir) for s in seasons}
     model = fit(pl.concat(list(frames.values()), how="diagonal_relaxed"))
 
+    from pwhl_data_build.io import cast_ids_int64
     from sportsdataverse._rds import write_rds
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     results: list[dict] = []
     for season in seasons:
-        df = score(frames[season], model=model)
+        df = cast_ids_int64(score(frames[season], model=model))
         if df.height == 0:
             raise ValueError(f"pwhl_xg_pbp: season {season} produced 0 shot rows -- refusing to publish an empty tag")
         path = out_dir / f"pwhl_xg_pbp_{season}.parquet"
